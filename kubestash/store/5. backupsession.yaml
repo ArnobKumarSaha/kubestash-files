@@ -1,0 +1,61 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: BackupSession
+metadata:
+  creationTimestamp: "2023-08-22T08:24:00Z"
+  finalizers:
+  - kubestash.com/cleanup
+  generation: 1
+  name: db-backup-frequent-backup-1692692640
+  namespace: demo
+  ownerReferences:
+  - apiVersion: core.kubestash.com/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: BackupConfiguration
+    name: db-backup
+    uid: 8db4f9ca-9b19-49e9-a3a7-f3946c6efdc0
+  resourceVersion: "397575"
+  uid: 9fb626b3-1157-4e22-92ad-7a41495b6ea4
+spec:
+  invoker:
+    apiGroup: core.kubestash.com
+    kind: BackupConfiguration
+    name: db-backup
+  session: frequent-backup
+status:
+  conditions:
+  - lastTransitionTime: "2023-08-22T08:24:00Z"
+    message: Snapshots have been ensured successfully.
+    reason: SuccessfullyEnsuredSnapshots
+    status: "True"
+    type: SnapshotsEnsured
+  - lastTransitionTime: "2023-08-22T08:24:00Z"
+    message: Backup Executor has been ensured successfully.
+    reason: SuccessfullyEnsuredBackupExecutor
+    status: "True"
+    type: BackupExecutorEnsured
+  - lastTransitionTime: "2023-08-22T08:24:45Z"
+    reason: SuccessfullyCleanedSessionHistory
+    status: "True"
+    type: SessionHistoryCleaned
+  - lastTransitionTime: "2023-08-22T08:24:45Z"
+    message: Metrics have been pushed successfully.
+    reason: SuccessfullyPushedMetrics
+    status: "True"
+    type: MetricsPushed
+  phase: Succeeded
+  retentionPolicy:
+  - phase: Applied
+    ref:
+      name: rp
+      namespace: demo
+    repository: linode-repo
+  snapshots:
+  - appRef:
+      apiGroup: kubedb.com
+      kind: MongoDB
+      name: standalone
+      namespace: demo
+    name: linode-repo-db-backup-frequent-backup-1692692640
+    phase: Succeeded
+    repository: linode-repo

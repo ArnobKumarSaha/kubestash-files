@@ -1,0 +1,49 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-volume-snapshot
+spec:
+  args:
+  - backup
+  - --db=${DB_NAME:=}
+  - --namespace=${DB_NAMESPACE:=}
+  - --volume-snapshot-class-name=${VOLUME_SNAPSHOT_CLASS_NAME:=}
+  - --backup-session=${backupSession:=}
+  image: fahimabrar/mongodb-snapshotter-plugin:v0.1.0
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-backup
+spec:
+  # image: fahimabrar/kubedb-manifest:v0.1.0-6-g99ca49f_linux_amd64
+  image: hmsayem/kubedb-manifest:test_linux_amd64
+  args:
+  - backup
+  - --scratchDir=${scratchDir:=/tmp}
+  - --namespace=${namespace:=default}
+  - --backupSession=${backupSession:=}
+  # - --targetKind=${targetKind:=}
+  # - --targetNamespace=${targetNamespace:=default}
+  # - --targetName=${targetName:=}
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-restore
+spec:
+  image: fahimabrar/kubedb-manifest:v0.1.0-6-g99ca49f_linux_amd64
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoreSession=${restoreSession:=}
+  # - --targetKind=${targetKind:=}
+  - --restoreNamespace=${restoreNamespace:=default}
+  - --mongoYaml=${mongoYaml:=true}
+  - --mongoName=${mongoDBName:=}
+  - --pgYaml=${pgYaml:=true}
+  - --pgName=${pgName:=}
+  - --authSecretYaml=${authSecretYaml:=true}
+  - --authSecretName=${authSecretName:=}
+  - --configSecretYaml=${configSecretYaml:=true}
+  - --configSecretName=${configSecretName:=}

@@ -1,0 +1,79 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    batch.kubernetes.io/job-tracking: ""
+  creationTimestamp: "2023-08-22T08:22:00Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: kubestash-backup
+    app.kubernetes.io/managed-by: kubestash.com
+    kubestash.com/invoker-name: db-backup-frequent-backup-1692692520
+    kubestash.com/invoker-namespace: demo
+  name: db-backup-frequent-backup-1692692520
+  namespace: demo
+  resourceVersion: "397333"
+  uid: f236a1b1-03ba-42f9-afa7-415d48f371a3
+spec:
+  backoffLimit: 0
+  completionMode: NonIndexed
+  completions: 1
+  parallelism: 1
+  selector:
+    matchLabels:
+      batch.kubernetes.io/controller-uid: f236a1b1-03ba-42f9-afa7-415d48f371a3
+  suspend: false
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: kubestash-backup
+        app.kubernetes.io/managed-by: kubestash.com
+        batch.kubernetes.io/controller-uid: f236a1b1-03ba-42f9-afa7-415d48f371a3
+        batch.kubernetes.io/job-name: db-backup-frequent-backup-1692692520
+        controller-uid: f236a1b1-03ba-42f9-afa7-415d48f371a3
+        job-name: db-backup-frequent-backup-1692692520
+        kubestash.com/invoker-name: db-backup-frequent-backup-1692692520
+        kubestash.com/invoker-namespace: demo
+    spec:
+      containers:
+      - args:
+        - apply-retention-policy
+        - --session-namespace=demo
+        - --session-name=db-backup-frequent-backup-1692692520
+        image: arnobkumarsaha/kubestash:v0.1.0-33-gccdc8741-dirty_linux_amd64
+        imagePullPolicy: IfNotPresent
+        name: retentionpolicy-db-backup-frequent-backup-1692692520
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - args:
+        - backup
+        - --namespace=demo
+        - --backupSession=db-backup-frequent-backup-1692692520
+        image: arnobkumarsaha/mongodb:sayed_mongo_linux_amd64
+        imagePullPolicy: IfNotPresent
+        name: mongodb-backup-task-0
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      securityContext:
+        runAsUser: 65535
+      serviceAccount: db-backup-frequent-backup-1692692520
+      serviceAccountName: db-backup-frequent-backup-1692692520
+      terminationGracePeriodSeconds: 30
+status:
+  completionTime: "2023-08-22T08:22:35Z"
+  conditions:
+  - lastProbeTime: "2023-08-22T08:22:35Z"
+    lastTransitionTime: "2023-08-22T08:22:35Z"
+    status: "True"
+    type: Complete
+  ready: 0
+  startTime: "2023-08-22T08:22:00Z"
+  succeeded: 1
+  uncountedTerminatedPods: {}

@@ -1,0 +1,44 @@
+> kubectl logs -f -n demo pod/sample-f2kgs --all-containers
+I0729 08:21:57.420081       1 log.go:194] FLAG: --add-dir-header="false"
+I0729 08:21:57.420170       1 log.go:194] FLAG: --alsologtostderr="false"
+I0729 08:21:57.420178       1 log.go:194] FLAG: --enableCache="false"
+I0729 08:21:57.420183       1 log.go:194] FLAG: --help="false"
+I0729 08:21:57.420189       1 log.go:194] FLAG: --kubeconfig=""
+I0729 08:21:57.420195       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0729 08:21:57.420201       1 log.go:194] FLAG: --log-dir=""
+I0729 08:21:57.420206       1 log.go:194] FLAG: --log-file=""
+I0729 08:21:57.420213       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0729 08:21:57.420232       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0729 08:21:57.420243       1 log.go:194] FLAG: --logtostderr="true"
+I0729 08:21:57.420252       1 log.go:194] FLAG: --master=""
+I0729 08:21:57.420258       1 log.go:194] FLAG: --mongo-args=""
+I0729 08:21:57.420267       1 log.go:194] FLAG: --namespace="demo"
+I0729 08:21:57.420277       1 log.go:194] FLAG: --one-output="false"
+I0729 08:21:57.420287       1 log.go:194] FLAG: --restoreSession="sample"
+I0729 08:21:57.420297       1 log.go:194] FLAG: --scratchDir="/tmp"
+I0729 08:21:57.420306       1 log.go:194] FLAG: --skip-headers="false"
+I0729 08:21:57.420315       1 log.go:194] FLAG: --skip-log-headers="false"
+I0729 08:21:57.420322       1 log.go:194] FLAG: --snapshotName="linode-repo-db-backup-frequent-backup-1690614600"
+I0729 08:21:57.420332       1 log.go:194] FLAG: --stderrthreshold="2"
+I0729 08:21:57.420341       1 log.go:194] FLAG: --taskName="mongodb-restore-task"
+I0729 08:21:57.420347       1 log.go:194] FLAG: --v="0"
+I0729 08:21:57.420356       1 log.go:194] FLAG: --vmodule=""
+W0729 08:21:57.420380       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0729 08:21:57.540533       1 database.go:30] checking database connection.....
+I0729 08:21:57.540764       1 restore.go:223] processing dumpOptions for  rs0/restore-mongodb-0.restore-mongodb-pods.demo.svc:27017,restore-mongodb-1.restore-mongodb-pods.demo.svc:27017,restore-mongodb-2.restore-mongodb-pods.demo.svc:27017
+I0729 08:21:57.630305       1 commands.go:239] Dumping backed up data
+2023-07-29T08:22:04.067+0000	preparing collections to restore from
+2023-07-29T08:22:04.067+0000	don't know what to do with subdirectory "kubedb-system", skipping...
+2023-07-29T08:22:04.067+0000	don't know what to do with subdirectory "", skipping...
+2023-07-29T08:22:04.067+0000	don't know what to do with subdirectory "admin", skipping...
+2023-07-29T08:22:04.173+0000	reading metadata for kubedb-system.health-check from archive on stdin
+2023-07-29T08:22:04.174+0000	restoring to existing collection kubedb-system.health-check without dropping
+2023-07-29T08:22:04.174+0000	restoring kubedb-system.health-check from archive on stdin
+2023-07-29T08:22:04.186+0000	finished restoring kubedb-system.health-check (3 documents, 0 failures)
+2023-07-29T08:22:04.186+0000	restoring users from archive on stdin
+2023-07-29T08:22:04.324+0000	replaying oplog
+2023-07-29T08:22:04.325+0000	applied 0 oplog entries
+2023-07-29T08:22:04.326+0000	no indexes to restore for collection kubedb-system.health-check
+2023-07-29T08:22:04.326+0000	3 document(s) restored successfully. 0 document(s) failed to restore.
+I0729 08:22:04.329325       1 commands.go:370] sh-output: 
+I0729 08:22:04.329362       1 restore.go:295] restore finish successfully

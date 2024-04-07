@@ -1,0 +1,58 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-backup
+spec: 
+  image: arnobkumarsaha/mongodb:sayed_mongo_linux_amd64
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --backupSession=${backupSession:=}
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-restore
+spec:
+  image: arnobkumarsaha/mongodb:sayed_mongo_linux_amd64
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoreSession=${restoreSession:=}
+  - --snapshotName=${snapshotName:=}
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-backup
+spec:
+  image: arnobkumarsaha/kubedb-manifest:v0.1.0-12-g5a47722_linux_amd64
+  args:
+  - backup
+  - --scratchDir=${scratchDir:=/tmp}
+  - --namespace=${namespace:=default}
+  - --backupSession=${backupSession:=}
+  - --targetKind=${targetKind:=}
+  - --targetNamespace=${targetNamespace:=default}
+  - --targetName=${targetName:=}
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-restore
+spec:
+  image: arnobkumarsaha/kubedb-manifest:v0.1.0-12-g5a47722_linux_amd64
+  args:
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoreSession=${restoreSession:=}
+  - --targetKind=${targetKind:=}
+  - --restoreNamespace=${restoreNamespace:=default}
+  - --mongoYaml=${mongoYaml:=true}
+  - --mongoName=${mongoDBName:=}
+  - --pgYaml=${pgYaml:=true}
+  - --pgName=${pgName:=}
+  - --authSecretYaml=${authSecretYaml:=true}
+  - --authSecretName=${authSecretName:=}
+  - --configSecretYaml=${configSecretYaml:=true}
+  - --configSecretName=${configSecretName:=}

@@ -1,0 +1,25 @@
+apiVersion: kubedb.com/v1alpha2
+kind: MongoDB
+metadata:
+  name: mg-rs
+  namespace: demo
+  labels:
+    archiver: "true"
+spec:
+  version: "5.0.23"
+  replicaSet:
+    name: "rs" 
+  replicas: 3
+  podTemplate:
+    spec:
+      resources:
+        requests:
+          cpu: "500m"
+          memory: "500Mi"
+  storage:
+    # storageClassName: longhorn
+    accessModes:
+      - ReadWriteOnce
+    resources:
+      requests:
+        storage: 1Gi

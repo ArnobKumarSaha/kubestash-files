@@ -1,0 +1,65 @@
+> kubectl logs -f -n demo pod/db-backup-frequent-backup-1690614480-745kf --all-containers
+I0729 07:08:07.898622       1 log.go:194] FLAG: --add-dir-header="false"
+I0729 07:08:07.900311       1 log.go:194] FLAG: --alsologtostderr="false"
+I0729 07:08:07.900368       1 log.go:194] FLAG: --authentication-database="admin"
+I0729 07:08:07.900477       1 log.go:194] FLAG: --backupSession="db-backup-frequent-backup-1690614480"
+I0729 07:08:07.900497       1 log.go:194] FLAG: --enableCache="false"
+I0729 07:08:07.900505       1 log.go:194] FLAG: --help="false"
+I0729 07:08:07.900522       1 log.go:194] FLAG: --hostname="host-0"
+I0729 07:08:07.900535       1 log.go:194] FLAG: --kubeconfig=""
+I0729 07:08:07.900563       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0729 07:08:07.900572       1 log.go:194] FLAG: --log-dir=""
+I0729 07:08:07.900585       1 log.go:194] FLAG: --log-file=""
+I0729 07:08:07.900595       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0729 07:08:07.900604       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0729 07:08:07.900612       1 log.go:194] FLAG: --logtostderr="true"
+I0729 07:08:07.900625       1 log.go:194] FLAG: --master=""
+I0729 07:08:07.900634       1 log.go:194] FLAG: --max-concurrency="3"
+I0729 07:08:07.900643       1 log.go:194] FLAG: --mongo-args=""
+I0729 07:08:07.900650       1 log.go:194] FLAG: --namespace="demo"
+I0729 07:08:07.900658       1 log.go:194] FLAG: --one-output="false"
+I0729 07:08:07.900672       1 log.go:194] FLAG: --scratchDir="/tmp"
+I0729 07:08:07.900680       1 log.go:194] FLAG: --skip-headers="false"
+I0729 07:08:07.900694       1 log.go:194] FLAG: --skip-log-headers="false"
+I0729 07:08:07.900703       1 log.go:194] FLAG: --stderrthreshold="2"
+I0729 07:08:07.900717       1 log.go:194] FLAG: --taskName="mongodb-backup-task"
+I0729 07:08:07.900724       1 log.go:194] FLAG: --v="0"
+I0729 07:08:07.900733       1 log.go:194] FLAG: --vmodule=""
+I0729 07:08:07.900742       1 log.go:194] FLAG: --wait-timeout="300"
+W0729 07:08:07.900774       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0729 07:08:08.326307       1 backup.go:101] backupConfiguration = db-backup, backupsession = db-backup-frequent-backup-1690614480, appbinding = sample-mongodb 
+I0729 07:08:08.326459       1 backup.go:104] snapshots = 
+I0729 07:08:08.326471       1 backup.go:107] linode-repo-db-backup-frequent-backup-1690614480 , 
+I0729 07:08:09.126484       1 utils.go:243] checking database connection.....
+I0729 07:08:09.251812       1 database.go:188] Attempting to lock secondary member sample-mongodb-1.sample-mongodb-pods.demo.svc.cluster.local:27017
+I0729 07:08:09.894521       1 backup.go:328] processing backupOptions for  sample-mongodb-1.sample-mongodb-pods.demo.svc.cluster.local:27017
+I0729 07:08:09.909361       1 commands.go:111] Checking whether the backend repository exist or not....
+[golang-sh]$ restic snapshots --json --no-lock --no-cache
+I0729 07:08:13.760047       1 commands.go:370] sh-output: [{"time":"2023-07-29T06:52:09.15847153Z","tree":"09fe7483b75230317ce15202c79f73be7d95f4b5143970209a72885a6a96f5f3","paths":["/dump"],"hostname":"host-0","id":"6bdf5887eb864b39ee1eeca1217a0fdf15d268d4a34ad7bd3015718f0380e6c9","short_id":"6bdf5887"}]
+
+I0729 07:08:13.760216       1 commands.go:171] Backing up stdin data
+[golang-sh]$ mongodump --host sample-mongodb-1.sample-mongodb-pods.demo.svc.cluster.local:27017 --archive --username=root --password=9Ih8XkH5Dp4d~(OK --authenticationDatabase admin --oplog | restic backup --stdin --quiet --json --stdin-filename dump --host host-0 --no-cache
+2023-07-29T07:08:13.801+0000	writing admin.system.users to archive on stdout
+2023-07-29T07:08:13.806+0000	done dumping admin.system.users (1 document)
+2023-07-29T07:08:13.807+0000	writing admin.system.version to archive on stdout
+2023-07-29T07:08:13.810+0000	done dumping admin.system.version (2 documents)
+2023-07-29T07:08:13.812+0000	writing kubedb-system.health-check to archive on stdout
+2023-07-29T07:08:13.822+0000	done dumping kubedb-system.health-check (3 documents)
+2023-07-29T07:08:13.823+0000	writing captured oplog to 
+2023-07-29T07:08:13.832+0000		dumped 1 oplog entry
+I0729 07:08:19.933010       1 commands.go:370] sh-output: {"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":2846,"total_files_processed":1,"total_bytes_processed":2559,"total_duration":2.830289552,"snapshot_id":"6504041874a8ffbae308034aefa164f82fb6dd2b3d2670e31762180200027879"}
+
+I0729 07:08:19.933150       1 commands.go:274] Checking integrity of repository
+[golang-sh]$ restic check --no-lock --no-cache
+I0729 07:08:25.770494       1 commands.go:370] sh-output: load indexes
+check all packs
+check snapshots, trees and blobs
+[0:01] 100.00%  2 / 2 snapshots
+
+no errors were found
+
+I0729 07:08:25.770534       1 commands.go:283] Reading repository status
+[golang-sh]$ restic stats --no-cache --quiet --json --mode raw-data --no-lock
+I0729 07:08:31.263675       1 commands.go:370] sh-output: {"total_size":2740,"total_uncompressed_size":5817,"compression_ratio":2.122992700729927,"compression_progress":100,"compression_space_saving":52.89668213855939,"total_blob_count":4,"snapshots_count":2}
+
+I0729 07:08:31.274336       1 database.go:214] Attempting to unlock secondary member sample-mongodb-1.sample-mongodb-pods.demo.svc.cluster.local:27017

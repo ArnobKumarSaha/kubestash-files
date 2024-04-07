@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shake
+  namespace: demo
+spec:
+  containers:
+  - args:
+    # - pwd && ls
+    - -conf=/app/collector.conf
+    image: shake
+    name: pod
+    imagePullPolicy: IfNotPresent
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

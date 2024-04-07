@@ -1,0 +1,384 @@
+kubectl logs -f -n demo pod/stash-restore-mg-restore-0-f9fqj --all-containers
+I0814 11:30:45.038829       1 log.go:194] FLAG: --add-dir-header="false"
+I0814 11:30:45.038868       1 log.go:194] FLAG: --alsologtostderr="false"
+I0814 11:30:45.038870       1 log.go:194] FLAG: --backupsession=""
+I0814 11:30:45.038873       1 log.go:194] FLAG: --bucket="arnob"
+I0814 11:30:25.003194       1 log.go:194] FLAG: --add-dir-header="false"
+I0814 11:30:25.003236       1 log.go:194] FLAG: --alsologtostderr="false"
+I0814 11:30:25.003239       1 log.go:194] FLAG: --appbinding="mg6-res"
+I0814 11:30:25.003242       1 log.go:194] FLAG: --appbinding-namespace="demo"
+I0814 11:30:25.003244       1 log.go:194] FLAG: --authentication-database="admin"
+I0814 11:30:45.038875       1 log.go:194] FLAG: --bypass-validating-webhook-xray="false"
+I0814 11:30:45.038877       1 log.go:194] FLAG: --enable-cache="true"
+I0814 11:30:25.003247       1 log.go:194] FLAG: --bucket="arnob"
+I0814 11:30:25.003251       1 log.go:194] FLAG: --enable-cache="false"
+I0814 11:30:25.003256       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0814 11:30:25.003260       1 log.go:194] FLAG: --help="false"
+I0814 11:30:45.038880       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0814 11:30:45.038882       1 log.go:194] FLAG: --help="false"
+I0814 11:30:25.003264       1 log.go:194] FLAG: --hostname=""
+I0814 11:30:45.038884       1 log.go:194] FLAG: --invoker-kind="RestoreSession"
+I0814 11:30:45.038887       1 log.go:194] FLAG: --invoker-name="mg-restore"
+I0814 11:30:45.038889       1 log.go:194] FLAG: --kubeconfig=""
+I0814 11:30:45.038892       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0814 11:30:45.038894       1 log.go:194] FLAG: --log-dir=""
+I0814 11:30:45.038896       1 log.go:194] FLAG: --log-file=""
+I0814 11:30:45.038898       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0814 11:30:45.038903       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0814 11:30:45.038906       1 log.go:194] FLAG: --logtostderr="true"
+I0814 11:30:45.038908       1 log.go:194] FLAG: --master=""
+I0814 11:30:45.038911       1 log.go:194] FLAG: --max-connections="0"
+I0814 11:30:45.038914       1 log.go:194] FLAG: --metrics-enabled="true"
+I0814 11:30:45.038918       1 log.go:194] FLAG: --metrics-labels="[]"
+I0814 11:30:25.003266       1 log.go:194] FLAG: --kubeconfig=""
+I0814 11:30:25.003270       1 log.go:194] FLAG: --license-apiservice="v1beta1.admission.stash.appscode.com"
+I0814 11:30:25.003277       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0814 11:30:25.003280       1 log.go:194] FLAG: --log-dir=""
+I0814 11:30:25.003282       1 log.go:194] FLAG: --log-file=""
+I0814 11:30:45.038921       1 log.go:194] FLAG: --metrics-pushgateway-url="http://stash-stash-enterprise.stash.svc:56789"
+I0814 11:30:45.038924       1 log.go:194] FLAG: --namespace="demo"
+I0814 11:30:25.003285       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0814 11:30:25.003288       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0814 11:30:25.003291       1 log.go:194] FLAG: --logtostderr="true"
+I0814 11:30:25.003293       1 log.go:194] FLAG: --master=""
+I0814 11:30:25.003296       1 log.go:194] FLAG: --max-concurrency="3"
+I0814 11:30:25.003299       1 log.go:194] FLAG: --max-connections="0"
+I0814 11:30:25.003301       1 log.go:194] FLAG: --mongo-args=""
+I0814 11:30:25.003304       1 log.go:194] FLAG: --namespace="demo"
+I0814 11:30:25.003306       1 log.go:194] FLAG: --one-output="false"
+I0814 11:30:25.003309       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0814 11:30:25.003311       1 log.go:194] FLAG: --path="rs"
+I0814 11:30:25.003314       1 log.go:194] FLAG: --provider="s3"
+I0814 11:30:45.038927       1 log.go:194] FLAG: --one-output="false"
+I0814 11:30:45.038930       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0814 11:30:25.003317       1 log.go:194] FLAG: --region="us-east-1"
+I0814 11:30:45.038932       1 log.go:194] FLAG: --path="rs"
+I0814 11:30:45.038934       1 log.go:194] FLAG: --provider="s3"
+I0814 11:30:25.003319       1 log.go:194] FLAG: --restoresession="mg-restore"
+I0814 11:30:25.003322       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0814 11:30:25.003325       1 log.go:194] FLAG: --skip-headers="false"
+I0814 11:30:25.003327       1 log.go:194] FLAG: --skip-log-headers="false"
+I0814 11:30:25.003331       1 log.go:194] FLAG: --snapshot="latest"
+I0814 11:30:45.038938       1 log.go:194] FLAG: --region="us-east-1"
+I0814 11:30:45.038941       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0814 11:30:25.003335       1 log.go:194] FLAG: --source-hostname=""
+I0814 11:30:25.003339       1 log.go:194] FLAG: --stderrthreshold="2"
+I0814 11:30:45.038944       1 log.go:194] FLAG: --skip-headers="false"
+I0814 11:30:25.003343       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0814 11:30:45.038946       1 log.go:194] FLAG: --skip-log-headers="false"
+I0814 11:30:45.038949       1 log.go:194] FLAG: --stderrthreshold="2"
+I0814 11:30:45.038952       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0814 11:30:45.038958       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0814 11:30:25.003345       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0814 11:30:25.003348       1 log.go:194] FLAG: --v="0"
+I0814 11:30:25.003351       1 log.go:194] FLAG: --vmodule=""
+I0814 11:30:25.003354       1 log.go:194] FLAG: --wait-timeout="300"
+I0814 11:30:45.038961       1 log.go:194] FLAG: --target-kind="AppBinding"
+I0814 11:30:45.038963       1 log.go:194] FLAG: --target-name="mg6-res"
+W0814 11:30:25.003465       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0814 11:30:45.038966       1 log.go:194] FLAG: --target-namespace="demo"
+I0814 11:30:45.038968       1 log.go:194] FLAG: --use-kubeapiserver-fqdn-for-aks="true"
+I0814 11:30:45.038970       1 log.go:194] FLAG: --v="0"
+I0814 11:30:25.024408       1 restore.go:313] processing backupOptions for  cnfRepSet/mg6-res-configsvr-0.mg6-res-configsvr-pods.demo.svc:27017,mg6-res-configsvr-1.mg6-res-configsvr-pods.demo.svc:27017
+I0814 11:30:25.024416       1 restore.go:313] processing backupOptions for  shard0/mg6-res-shard0-0.mg6-res-shard0-pods.demo.svc:27017,mg6-res-shard0-1.mg6-res-shard0-pods.demo.svc:27017
+I0814 11:30:25.024420       1 restore.go:313] processing backupOptions for  shard1/mg6-res-shard1-0.mg6-res-shard1-pods.demo.svc:27017,mg6-res-shard1-1.mg6-res-shard1-pods.demo.svc:27017
+I0814 11:30:25.024423       1 restore.go:313] processing backupOptions for  shard2/mg6-res-shard2-0.mg6-res-shard2-pods.demo.svc:27017,mg6-res-shard2-1.mg6-res-shard2-pods.demo.svc:27017
+I0814 11:30:45.038974       1 log.go:194] FLAG: --vmodule=""
+W0814 11:30:45.039490       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0814 11:30:45.044221       1 status.go:79] Reading restore output from file: /stash-tmp/output/output.json
+I0814 11:30:25.024429       1 restore.go:388] processing restore.
+I0814 11:30:25.024432       1 utils.go:75] Checking database connection
+I0814 11:30:25.024614       1 commands.go:297] Dumping backed up data
+I0814 11:30:45.046150       1 status.go:195] Updating hosts status for restore target AppBinding demo/mg6-res.
+I0814 11:30:45.064623       1 main.go:45] Exiting Stash Main
+I0814 11:30:25.024625       1 commands.go:297] Dumping backed up data
+I0814 11:30:25.024627       1 commands.go:297] Dumping backed up data
+2023-08-14T11:30:33.567+0000	preparing collections to restore from
+2023-08-14T11:30:33.567+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-14T11:30:33.567+0000	don't know what to do with subdirectory "kubedb-system", skipping...
+2023-08-14T11:30:33.567+0000	don't know what to do with subdirectory "", skipping...
+2023-08-14T11:30:33.567+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-14T11:30:33.576+0000	reading metadata for kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.rangeDeletions from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.vectorClock from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.migrationRecipients from archive on stdin
+2023-08-14T11:30:33.576+0000	reading metadata for config.external_validation_keys from archive on stdin
+2023-08-14T11:30:33.577+0000	restoring to existing collection config.rangeDeletions without dropping
+2023-08-14T11:30:33.577+0000	restoring config.rangeDeletions from archive on stdin
+2023-08-14T11:30:33.587+0000	finished restoring config.rangeDeletions (0 documents, 0 failures)
+2023-08-14T11:30:33.589+0000	restoring to existing collection config.tenantMigrationRecipients without dropping
+2023-08-14T11:30:33.589+0000	restoring config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:33.603+0000	finished restoring config.tenantMigrationRecipients (0 documents, 0 failures)
+2023-08-14T11:30:33.604+0000	restoring to existing collection config.tenantMigrationDonors without dropping
+2023-08-14T11:30:33.604+0000	restoring config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:33.615+0000	finished restoring config.tenantMigrationDonors (0 documents, 0 failures)
+2023-08-14T11:30:33.617+0000	restoring to existing collection kubedb-system.health-check without dropping
+2023-08-14T11:30:33.617+0000	restoring kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:33.631+0000	finished restoring kubedb-system.health-check (1 document, 0 failures)
+2023-08-14T11:30:33.631+0000	restoring to existing collection config.collection_critical_sections without dropping
+2023-08-14T11:30:33.631+0000	restoring config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:33.642+0000	finished restoring config.collection_critical_sections (0 documents, 0 failures)
+2023-08-14T11:30:33.642+0000	restoring to existing collection config.vectorClock without dropping
+2023-08-14T11:30:33.642+0000	restoring config.vectorClock from archive on stdin
+2023-08-14T11:30:33.643+0000	continuing through error: E11000 duplicate key error collection: config.vectorClock index: _id_ dup key: { _id: "vectorClockState" }
+2023-08-14T11:30:33.652+0000	finished restoring config.vectorClock (0 documents, 1 failure)
+2023-08-14T11:30:33.652+0000	restoring to existing collection config.migrationRecipients without dropping
+2023-08-14T11:30:33.652+0000	restoring config.migrationRecipients from archive on stdin
+2023-08-14T11:30:33.663+0000	finished restoring config.migrationRecipients (0 documents, 0 failures)
+2023-08-14T11:30:33.663+0000	restoring to existing collection config.external_validation_keys without dropping
+2023-08-14T11:30:33.663+0000	restoring config.external_validation_keys from archive on stdin
+2023-08-14T11:30:33.674+0000	finished restoring config.external_validation_keys (0 documents, 0 failures)
+2023-08-14T11:30:33.674+0000	restoring users from archive on stdin
+2023-08-14T11:30:33.707+0000	restoring roles from archive on stdin
+2023-08-14T11:30:33.791+0000	replaying oplog
+2023-08-14T11:30:33.797+0000	applied 0 oplog entries
+2023-08-14T11:30:33.797+0000	restoring indexes for collection kubedb-system.health-check from metadata
+2023-08-14T11:30:33.797+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"id_1", "v":2}, Key:primitive.D{primitive.E{Key:"id", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:33.797+0000	restoring indexes for collection config.tenantMigrationDonors from metadata
+2023-08-14T11:30:33.797+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationDonorTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:33.798+0000	no indexes to restore for collection config.collection_critical_sections
+2023-08-14T11:30:33.798+0000	no indexes to restore for collection config.vectorClock
+2023-08-14T11:30:33.798+0000	no indexes to restore for collection config.migrationRecipients
+2023-08-14T11:30:33.798+0000	restoring indexes for collection config.external_validation_keys from metadata
+2023-08-14T11:30:33.798+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"ExternalKeysTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"ttlExpiresAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:33.798+0000	restoring indexes for collection config.tenantMigrationRecipients from metadata
+2023-08-14T11:30:33.798+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationRecipientTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:33.798+0000	restoring indexes for collection config.rangeDeletions from metadata
+2023-08-14T11:30:33.798+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"collectionUuid_1_range.min_1_range.max_1", "v":2}, Key:primitive.D{primitive.E{Key:"collectionUuid", Value:1}, primitive.E{Key:"range.min", Value:1}, primitive.E{Key:"range.max", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:33.890+0000	1 document(s) restored successfully. 1 document(s) failed to restore.
+I0814 11:30:33.893593       1 commands.go:428] sh-output: 
+I0814 11:30:33.893657       1 commands.go:297] Dumping backed up data
+2023-08-14T11:30:34.231+0000	preparing collections to restore from
+2023-08-14T11:30:34.231+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-14T11:30:34.231+0000	don't know what to do with subdirectory "kubedb-system", skipping...
+2023-08-14T11:30:34.231+0000	don't know what to do with subdirectory "", skipping...
+2023-08-14T11:30:34.231+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-14T11:30:34.236+0000	reading metadata for config.vectorClock from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.migrationCoordinators from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.rangeDeletions from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.external_validation_keys from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:34.236+0000	reading metadata for config.system.sharding_ddl_coordinators from archive on stdin
+2023-08-14T11:30:34.237+0000	restoring to existing collection config.tenantMigrationDonors without dropping
+2023-08-14T11:30:34.237+0000	restoring config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:34.237+0000	restoring to existing collection config.vectorClock without dropping
+2023-08-14T11:30:34.237+0000	restoring config.vectorClock from archive on stdin
+2023-08-14T11:30:34.240+0000	continuing through error: E11000 duplicate key error collection: config.vectorClock index: _id_ dup key: { _id: "vectorClockState" }
+2023-08-14T11:30:34.249+0000	finished restoring config.vectorClock (0 documents, 1 failure)
+2023-08-14T11:30:34.249+0000	finished restoring config.tenantMigrationDonors (0 documents, 0 failures)
+2023-08-14T11:30:34.250+0000	restoring to existing collection config.tenantMigrationRecipients without dropping
+2023-08-14T11:30:34.250+0000	restoring config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:34.260+0000	finished restoring config.tenantMigrationRecipients (0 documents, 0 failures)
+2023-08-14T11:30:34.261+0000	restoring to existing collection config.collection_critical_sections without dropping
+2023-08-14T11:30:34.261+0000	restoring config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:34.275+0000	finished restoring config.collection_critical_sections (0 documents, 0 failures)
+2023-08-14T11:30:34.276+0000	restoring to existing collection kubedb-system.health-check without dropping
+2023-08-14T11:30:34.276+0000	restoring kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:34.290+0000	finished restoring kubedb-system.health-check (3 documents, 0 failures)
+2023-08-14T11:30:34.290+0000	restoring to existing collection config.rangeDeletions without dropping
+2023-08-14T11:30:34.290+0000	restoring config.rangeDeletions from archive on stdin
+2023-08-14T11:30:34.301+0000	finished restoring config.rangeDeletions (2 documents, 0 failures)
+2023-08-14T11:30:34.301+0000	restoring to existing collection config.migrationCoordinators without dropping
+2023-08-14T11:30:34.301+0000	restoring config.migrationCoordinators from archive on stdin
+2023-08-14T11:30:34.311+0000	finished restoring config.migrationCoordinators (0 documents, 0 failures)
+2023-08-14T11:30:34.311+0000	restoring to existing collection config.system.sharding_ddl_coordinators without dropping
+2023-08-14T11:30:34.311+0000	restoring config.system.sharding_ddl_coordinators from archive on stdin
+2023-08-14T11:30:34.323+0000	finished restoring config.system.sharding_ddl_coordinators (0 documents, 0 failures)
+2023-08-14T11:30:34.323+0000	restoring to existing collection config.external_validation_keys without dropping
+2023-08-14T11:30:34.323+0000	restoring config.external_validation_keys from archive on stdin
+2023-08-14T11:30:34.335+0000	finished restoring config.external_validation_keys (0 documents, 0 failures)
+2023-08-14T11:30:34.336+0000	restoring users from archive on stdin
+2023-08-14T11:30:34.365+0000	restoring roles from archive on stdin
+2023-08-14T11:30:34.438+0000	replaying oplog
+2023-08-14T11:30:34.438+0000	applied 0 oplog entries
+2023-08-14T11:30:34.438+0000	restoring indexes for collection config.tenantMigrationRecipients from metadata
+2023-08-14T11:30:34.438+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationRecipientTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:34.438+0000	restoring indexes for collection config.tenantMigrationDonors from metadata
+2023-08-14T11:30:34.438+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationDonorTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:34.438+0000	no indexes to restore for collection config.migrationCoordinators
+2023-08-14T11:30:34.438+0000	restoring indexes for collection config.external_validation_keys from metadata
+2023-08-14T11:30:34.438+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"ExternalKeysTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"ttlExpiresAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:34.438+0000	restoring indexes for collection config.rangeDeletions from metadata
+2023-08-14T11:30:34.438+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"collectionUuid_1_range.min_1_range.max_1", "v":2}, Key:primitive.D{primitive.E{Key:"collectionUuid", Value:1}, primitive.E{Key:"range.min", Value:1}, primitive.E{Key:"range.max", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:34.438+0000	no indexes to restore for collection config.collection_critical_sections
+2023-08-14T11:30:34.438+0000	no indexes to restore for collection config.system.sharding_ddl_coordinators
+2023-08-14T11:30:34.438+0000	no indexes to restore for collection config.vectorClock
+2023-08-14T11:30:34.438+0000	restoring indexes for collection kubedb-system.health-check from metadata
+2023-08-14T11:30:34.438+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"id_1", "v":2}, Key:primitive.D{primitive.E{Key:"id", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:34.543+0000	5 document(s) restored successfully. 1 document(s) failed to restore.
+I0814 11:30:34.549163       1 commands.go:428] sh-output: 
+2023-08-14T11:30:36.074+0000	preparing collections to restore from
+2023-08-14T11:30:36.075+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-14T11:30:36.075+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-14T11:30:36.075+0000	don't know what to do with subdirectory "", skipping...
+2023-08-14T11:30:36.080+0000	reading metadata for config.actionlog from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.lockpings from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.locks from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.databases from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.shards from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.migrations from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.collections from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.tags from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.version from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.changelog from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.reshardingOperations_temp from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.settings from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.chunks from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for config.BackupControl from archive on stdin
+2023-08-14T11:30:36.081+0000	reading metadata for admin.kubedb from archive on stdin
+2023-08-14T11:30:36.081+0000	restoring to existing collection config.actionlog without dropping
+2023-08-14T11:30:36.081+0000	restoring config.actionlog from archive on stdin
+2023-08-14T11:30:36.092+0000	finished restoring config.actionlog (5 documents, 0 failures)
+2023-08-14T11:30:36.094+0000	restoring to existing collection config.lockpings without dropping
+2023-08-14T11:30:36.094+0000	restoring config.lockpings from archive on stdin
+2023-08-14T11:30:36.095+0000	continuing through error: E11000 duplicate key error collection: config.lockpings index: _id_ dup key: { _id: "config" }
+2023-08-14T11:30:36.095+0000	continuing through error: E11000 duplicate key error collection: config.lockpings index: _id_ dup key: { _id: "shard0" }
+2023-08-14T11:30:36.095+0000	continuing through error: E11000 duplicate key error collection: config.lockpings index: _id_ dup key: { _id: "shard1" }
+2023-08-14T11:30:36.095+0000	continuing through error: E11000 duplicate key error collection: config.lockpings index: _id_ dup key: { _id: "shard2" }
+2023-08-14T11:30:36.105+0000	finished restoring config.lockpings (0 documents, 4 failures)
+2023-08-14T11:30:36.106+0000	restoring to existing collection config.locks without dropping
+2023-08-14T11:30:36.106+0000	restoring config.locks from archive on stdin
+2023-08-14T11:30:36.111+0000	continuing through error: E11000 duplicate key error collection: config.locks index: _id_ dup key: { _id: "kubedb-system" }
+2023-08-14T11:30:36.111+0000	continuing through error: E11000 duplicate key error collection: config.locks index: _id_ dup key: { _id: "kubedb-system.health-check" }
+2023-08-14T11:30:36.116+0000	finished restoring config.locks (2 documents, 2 failures)
+2023-08-14T11:30:36.122+0000	restoring to existing collection config.shards without dropping
+2023-08-14T11:30:36.122+0000	restoring config.shards from archive on stdin
+2023-08-14T11:30:36.126+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard0" }
+2023-08-14T11:30:36.126+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard1" }
+2023-08-14T11:30:36.126+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard2" }
+2023-08-14T11:30:36.136+0000	finished restoring config.shards (0 documents, 3 failures)
+2023-08-14T11:30:36.136+0000	restoring to existing collection config.tags without dropping
+2023-08-14T11:30:36.136+0000	restoring config.tags from archive on stdin
+2023-08-14T11:30:36.143+0000	continuing through error: E11000 duplicate key error collection: config.tags index: ns_1_min_1 dup key: { ns: "kubedb-system.health-check", min: { id: 0 } }
+2023-08-14T11:30:36.143+0000	continuing through error: E11000 duplicate key error collection: config.tags index: ns_1_min_1 dup key: { ns: "kubedb-system.health-check", min: { id: 1 } }
+2023-08-14T11:30:36.143+0000	continuing through error: E11000 duplicate key error collection: config.tags index: ns_1_min_1 dup key: { ns: "kubedb-system.health-check", min: { id: 2 } }
+2023-08-14T11:30:36.153+0000	finished restoring config.tags (0 documents, 3 failures)
+2023-08-14T11:30:36.153+0000	restoring to existing collection config.changelog without dropping
+2023-08-14T11:30:36.153+0000	restoring config.changelog from archive on stdin
+2023-08-14T11:30:36.198+0000	finished restoring config.changelog (1047 documents, 0 failures)
+2023-08-14T11:30:36.198+0000	restoring to existing collection config.collections without dropping
+2023-08-14T11:30:36.198+0000	restoring config.collections from archive on stdin
+2023-08-14T11:30:36.201+0000	continuing through error: E11000 duplicate key error collection: config.collections index: _id_ dup key: { _id: "kubedb-system.health-check" }
+2023-08-14T11:30:36.210+0000	finished restoring config.collections (1 document, 1 failure)
+2023-08-14T11:30:36.210+0000	restoring to existing collection config.settings without dropping
+2023-08-14T11:30:36.210+0000	restoring config.settings from archive on stdin
+2023-08-14T11:30:36.216+0000	continuing through error: E11000 duplicate key error collection: config.settings index: _id_ dup key: { _id: "ReadWriteConcernDefaults" }
+2023-08-14T11:30:36.223+0000	finished restoring config.settings (2 documents, 1 failure)
+2023-08-14T11:30:36.223+0000	restoring to existing collection config.chunks without dropping
+2023-08-14T11:30:36.223+0000	restoring config.chunks from archive on stdin
+2023-08-14T11:30:36.258+0000	finished restoring config.chunks (1029 documents, 0 failures)
+2023-08-14T11:30:36.259+0000	restoring to existing collection config.databases without dropping
+2023-08-14T11:30:36.259+0000	restoring config.databases from archive on stdin
+2023-08-14T11:30:36.259+0000	continuing through error: E11000 duplicate key error collection: config.databases index: _id_ dup key: { _id: "kubedb-system" }
+2023-08-14T11:30:36.269+0000	finished restoring config.databases (0 documents, 1 failure)
+2023-08-14T11:30:36.269+0000	restoring to existing collection config.version without dropping
+2023-08-14T11:30:36.269+0000	restoring config.version from archive on stdin
+2023-08-14T11:30:36.270+0000	continuing through error: E11000 duplicate key error collection: config.version index: _id_ dup key: { _id: 1 }
+2023-08-14T11:30:36.280+0000	finished restoring config.version (0 documents, 1 failure)
+2023-08-14T11:30:36.280+0000	restoring to existing collection config.migrations without dropping
+2023-08-14T11:30:36.280+0000	restoring config.migrations from archive on stdin
+2023-08-14T11:30:36.291+0000	finished restoring config.migrations (0 documents, 0 failures)
+2023-08-14T11:30:36.310+0000	restoring config.BackupControl from archive on stdin
+2023-08-14T11:30:36.326+0000	finished restoring config.BackupControl (1 document, 0 failures)
+2023-08-14T11:30:36.326+0000	restoring to existing collection admin.kubedb without dropping
+2023-08-14T11:30:36.326+0000	restoring admin.kubedb from archive on stdin
+2023-08-14T11:30:36.329+0000	continuing through error: E11000 duplicate key error collection: admin.kubedb index: _id_ dup key: { _id: "kubedb" }
+2023-08-14T11:30:36.340+0000	finished restoring admin.kubedb (0 documents, 1 failure)
+2023-08-14T11:30:36.350+0000	restoring config.reshardingOperations_temp from archive on stdin
+2023-08-14T11:30:36.363+0000	finished restoring config.reshardingOperations_temp (0 documents, 0 failures)
+2023-08-14T11:30:36.363+0000	restoring users from archive on stdin
+2023-08-14T11:30:36.396+0000	restoring roles from archive on stdin
+2023-08-14T11:30:36.879+0000	replaying oplog
+2023-08-14T11:30:36.881+0000	skipping applying the config.mongos namespace in applyOps
+2023-08-14T11:30:36.881+0000	applied 0 oplog entries
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.changelog
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.databases
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.migrations from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ns_1_min_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"ns", Value:1}, primitive.E{Key:"min", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.tags from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ns_1_min_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"ns", Value:1}, primitive.E{Key:"min", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.shards from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"host_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"host", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ns_1_tag_1", "v":2}, Key:primitive.D{primitive.E{Key:"ns", Value:1}, primitive.E{Key:"tag", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.version
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.reshardingOperations_temp from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ReshardingCoordinatorActiveIndex", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"active", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.chunks from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"uuid_1_min_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"uuid", Value:1}, primitive.E{Key:"min", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"uuid_1_shard_1_min_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"uuid", Value:1}, primitive.E{Key:"shard", Value:1}, primitive.E{Key:"min", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"uuid_1_lastmod_1", "unique":true, "v":2}, Key:primitive.D{primitive.E{Key:"uuid", Value:1}, primitive.E{Key:"lastmod", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.actionlog
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.locks from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ts_1", "v":2}, Key:primitive.D{primitive.E{Key:"ts", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"state_1_process_1", "v":2}, Key:primitive.D{primitive.E{Key:"state", Value:1}, primitive.E{Key:"process", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.collections
+2023-08-14T11:30:36.881+0000	no indexes to restore for collection config.BackupControl
+2023-08-14T11:30:36.881+0000	restoring indexes for collection config.lockpings from metadata
+2023-08-14T11:30:36.881+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"ping_1", "v":2}, Key:primitive.D{primitive.E{Key:"ping", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:36.882+0000	no indexes to restore for collection config.settings
+2023-08-14T11:30:36.882+0000	no indexes to restore for collection admin.kubedb
+2023-08-14T11:30:36.888+0000	2087 document(s) restored successfully. 17 document(s) failed to restore.
+I0814 11:30:36.890091       1 commands.go:428] sh-output: 
+2023-08-14T11:30:42.334+0000	preparing collections to restore from
+2023-08-14T11:30:42.334+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-14T11:30:42.334+0000	don't know what to do with subdirectory "kubedb-system", skipping...
+2023-08-14T11:30:42.334+0000	don't know what to do with subdirectory "", skipping...
+2023-08-14T11:30:42.334+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-14T11:30:42.340+0000	reading metadata for config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.external_validation_keys from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.vectorClock from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.migrationRecipients from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:42.340+0000	reading metadata for config.rangeDeletions from archive on stdin
+2023-08-14T11:30:42.341+0000	restoring to existing collection config.tenantMigrationDonors without dropping
+2023-08-14T11:30:42.341+0000	restoring config.tenantMigrationDonors from archive on stdin
+2023-08-14T11:30:42.352+0000	finished restoring config.tenantMigrationDonors (0 documents, 0 failures)
+2023-08-14T11:30:42.353+0000	restoring to existing collection config.rangeDeletions without dropping
+2023-08-14T11:30:42.353+0000	restoring config.rangeDeletions from archive on stdin
+2023-08-14T11:30:42.366+0000	finished restoring config.rangeDeletions (0 documents, 0 failures)
+2023-08-14T11:30:42.367+0000	restoring to existing collection config.tenantMigrationRecipients without dropping
+2023-08-14T11:30:42.367+0000	restoring config.tenantMigrationRecipients from archive on stdin
+2023-08-14T11:30:42.367+0000	restoring to existing collection config.collection_critical_sections without dropping
+2023-08-14T11:30:42.367+0000	restoring config.collection_critical_sections from archive on stdin
+2023-08-14T11:30:42.380+0000	finished restoring config.collection_critical_sections (0 documents, 0 failures)
+2023-08-14T11:30:42.383+0000	finished restoring config.tenantMigrationRecipients (0 documents, 0 failures)
+2023-08-14T11:30:42.383+0000	restoring to existing collection config.vectorClock without dropping
+2023-08-14T11:30:42.383+0000	restoring config.vectorClock from archive on stdin
+2023-08-14T11:30:42.386+0000	continuing through error: E11000 duplicate key error collection: config.vectorClock index: _id_ dup key: { _id: "vectorClockState" }
+2023-08-14T11:30:42.394+0000	finished restoring config.vectorClock (0 documents, 1 failure)
+2023-08-14T11:30:42.395+0000	restoring to existing collection kubedb-system.health-check without dropping
+2023-08-14T11:30:42.395+0000	restoring kubedb-system.health-check from archive on stdin
+2023-08-14T11:30:42.406+0000	finished restoring kubedb-system.health-check (1 document, 0 failures)
+2023-08-14T11:30:42.406+0000	restoring to existing collection config.external_validation_keys without dropping
+2023-08-14T11:30:42.406+0000	restoring config.external_validation_keys from archive on stdin
+2023-08-14T11:30:42.417+0000	finished restoring config.external_validation_keys (0 documents, 0 failures)
+2023-08-14T11:30:42.417+0000	restoring to existing collection config.migrationRecipients without dropping
+2023-08-14T11:30:42.417+0000	restoring config.migrationRecipients from archive on stdin
+2023-08-14T11:30:42.429+0000	finished restoring config.migrationRecipients (0 documents, 0 failures)
+2023-08-14T11:30:42.430+0000	restoring users from archive on stdin
+2023-08-14T11:30:42.462+0000	restoring roles from archive on stdin
+2023-08-14T11:30:42.528+0000	replaying oplog
+2023-08-14T11:30:42.530+0000	applied 0 oplog entries
+2023-08-14T11:30:42.531+0000	restoring indexes for collection config.tenantMigrationRecipients from metadata
+2023-08-14T11:30:42.531+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationRecipientTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:42.531+0000	no indexes to restore for collection config.vectorClock
+2023-08-14T11:30:42.531+0000	no indexes to restore for collection config.migrationRecipients
+2023-08-14T11:30:42.531+0000	no indexes to restore for collection config.collection_critical_sections
+2023-08-14T11:30:42.531+0000	restoring indexes for collection config.tenantMigrationDonors from metadata
+2023-08-14T11:30:42.531+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"TenantMigrationDonorTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"expireAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:42.531+0000	restoring indexes for collection config.external_validation_keys from metadata
+2023-08-14T11:30:42.531+0000	index: &idx.IndexDocument{Options:primitive.M{"expireAfterSeconds":0, "name":"ExternalKeysTTLIndex", "v":2}, Key:primitive.D{primitive.E{Key:"ttlExpiresAt", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:42.531+0000	restoring indexes for collection config.rangeDeletions from metadata
+2023-08-14T11:30:42.531+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"collectionUuid_1_range.min_1_range.max_1", "v":2}, Key:primitive.D{primitive.E{Key:"collectionUuid", Value:1}, primitive.E{Key:"range.min", Value:1}, primitive.E{Key:"range.max", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:42.531+0000	restoring indexes for collection kubedb-system.health-check from metadata
+2023-08-14T11:30:42.531+0000	index: &idx.IndexDocument{Options:primitive.M{"name":"id_1", "v":2}, Key:primitive.D{primitive.E{Key:"id", Value:1}}, PartialFilterExpression:primitive.D(nil)}
+2023-08-14T11:30:42.652+0000	1 document(s) restored successfully. 1 document(s) failed to restore.
+I0814 11:30:42.654293       1 commands.go:428] sh-output: 

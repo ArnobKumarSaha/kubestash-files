@@ -1,0 +1,52 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  creationTimestamp: "2023-08-22T08:21:17Z"
+  generation: 1
+  name: trigger-db-backup-frequent-backup
+  namespace: demo
+  ownerReferences:
+  - apiVersion: core.kubestash.com/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: BackupConfiguration
+    name: db-backup
+    uid: 8db4f9ca-9b19-49e9-a3a7-f3946c6efdc0
+  resourceVersion: "397271"
+  uid: 6fe30261-3e94-454c-9909-947bcfd21ef5
+spec:
+  concurrencyPolicy: Allow
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    metadata:
+      creationTimestamp: null
+    spec:
+      template:
+        metadata:
+          creationTimestamp: null
+        spec:
+          containers:
+          - args:
+            - trigger-backup
+            - --invoker-name=db-backup
+            - --invoker-kind=BackupConfiguration
+            - --session-name=frequent-backup
+            image: arnobkumarsaha/kubestash:v0.1.0-33-gccdc8741-dirty_linux_amd64
+            imagePullPolicy: IfNotPresent
+            name: trigger
+            resources: {}
+            terminationMessagePath: /dev/termination-log
+            terminationMessagePolicy: File
+          dnsPolicy: ClusterFirst
+          restartPolicy: Never
+          schedulerName: default-scheduler
+          securityContext: {}
+          serviceAccount: trigger-db-backup-frequent-backup
+          serviceAccountName: trigger-db-backup-frequent-backup
+          terminationGracePeriodSeconds: 30
+  schedule: '*/2 * * * *'
+  successfulJobsHistoryLimit: 10
+  suspend: false
+status:
+  lastScheduleTime: "2023-08-22T08:22:00Z"
+  lastSuccessfulTime: "2023-08-22T08:22:03Z"

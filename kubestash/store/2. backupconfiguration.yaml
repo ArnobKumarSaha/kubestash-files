@@ -1,0 +1,90 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: BackupConfiguration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"core.kubestash.com/v1alpha1","kind":"BackupConfiguration","metadata":{"annotations":{},"name":"db-backup","namespace":"demo"},"spec":{"backends":[{"name":"linode-backend","retentionPolicy":{"name":"rp","namespace":"demo"},"storageRef":{"apiGroup":"storage.kubestash.com","kind":"BackupStorage","name":"linode","namespace":"demo"}}],"sessions":[{"addon":{"name":"mongodb-backup-restore-addon","tasks":[{"name":"mongodb-backup-task"}]},"name":"frequent-backup","repositories":[{"backend":"linode-backend","directory":"/full","encryptionSecret":{"name":"encrypt-secret","namespace":"demo"},"name":"linode-repo"}],"scheduler":{"failedJobsHistoryLimit":10,"jobTemplate":{"backoffLimit":1},"schedule":"*/2 * * * *","successfulJobsHistoryLimit":10},"sessionHistoryLimit":3}],"target":{"apiGroup":"kubedb.com","kind":"MongoDB","name":"standalone","namespace":"demo"}}}
+  creationTimestamp: "2023-08-22T08:21:17Z"
+  finalizers:
+  - kubestash.com/cleanup
+  generation: 1
+  name: db-backup
+  namespace: demo
+  resourceVersion: "397160"
+  uid: 8db4f9ca-9b19-49e9-a3a7-f3946c6efdc0
+spec:
+  backends:
+  - name: linode-backend
+    retentionPolicy:
+      name: rp
+      namespace: demo
+    storageRef:
+      apiGroup: storage.kubestash.com
+      kind: BackupStorage
+      name: linode
+      namespace: demo
+  sessions:
+  - addon:
+      name: mongodb-backup-restore-addon
+      tasks:
+      - name: mongodb-backup-task
+    failurePolicy: Fail
+    name: frequent-backup
+    repositories:
+    - backend: linode-backend
+      directory: /full
+      encryptionSecret:
+        name: encrypt-secret
+        namespace: demo
+      name: linode-repo
+    scheduler:
+      failedJobsHistoryLimit: 10
+      jobTemplate:
+        backoffLimit: 1
+      schedule: '*/2 * * * *'
+      successfulJobsHistoryLimit: 10
+    sessionHistoryLimit: 3
+  target:
+    apiGroup: kubedb.com
+    kind: MongoDB
+    name: standalone
+    namespace: demo
+status:
+  backends:
+  - name: linode-backend
+    ready: true
+    retentionPolicy:
+      found: true
+      ref:
+        name: rp
+        namespace: demo
+    storage:
+      phase: Ready
+      ref:
+        apiGroup: storage.kubestash.com
+        kind: BackupStorage
+        name: linode
+        namespace: demo
+  conditions:
+  - lastTransitionTime: "2023-08-22T08:21:17Z"
+    message: Validation has been passed successfully.
+    reason: ResourceValidationPassed
+    status: "True"
+    type: ValidationPassed
+  dependencies:
+  - found: true
+    kind: Addon
+    name: mongodb-backup-restore-addon
+  phase: Ready
+  repositories:
+  - name: linode-repo
+    phase: Ready
+  sessions:
+  - conditions:
+    - lastTransitionTime: "2023-08-22T08:21:17Z"
+      message: Scheduler has been ensured successfully.
+      reason: SchedulerEnsured
+      status: "True"
+      type: SchedulerEnsured
+    name: frequent-backup
+  targetFound: true

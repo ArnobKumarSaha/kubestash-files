@@ -1,0 +1,28 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: RestoreSession
+metadata:
+  name: sample
+  namespace: demo
+spec:
+  target:
+    apiGroup: kubedb.com
+    kind: MongoDB
+    namespace: demo
+    name: restore-mg5
+  # manifestOptions:
+  #   restoreNamespace: demo2
+  #   mongoDB:
+  #     db: true
+  #     dbName: new-mongodb
+  #     authSecret: true
+  #     configSecret: true
+  dataSource:
+    snapshot: full-repo-db-backup-full-db-1709622300
+    repository: full-repo
+    encryptionSecret:
+      name: encrypt-secret # some addon may not support encryption
+      namespace: demo
+  addon:
+    name: mongodb-addon
+    tasks:
+      - name: logical-backup-restore

@@ -1,0 +1,40 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: mongodb-volume-snapshot
+spec:
+  args:
+  - backup
+  - --namespace=${namespace:=default}
+  - --volume-snapshot-class-name=${volumeSnapshotClassName:=}
+  - --backupsession=${backupSession:=}
+  # image: arnobkumarsaha/mongodb-csi-snapshotter-plugin:refactor_02
+  # image: hmsayem/mongodb-snapshotter-plugin:refactor_linux_amd64
+  image: hmsayem/mongodb-csi-snapshotter-plugin:refactor_linux_amd64
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-backup
+spec:
+  image: arnobkumarsaha/kubedb-manifest-plugin:v0.1.0-rc.1-2-g46ad967_linux_amd64
+  args:
+    - backup
+    - --namespace=${namespace:=default}
+    - --backupsession=${backupSession:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Function
+metadata:
+  name: kubedb-manifest-restore
+spec:
+  image: arnobkumarsaha/kubedb-manifest-plugin:v0.1.0-rc.1-2-g46ad967_linux_amd64
+  args:
+    - restore
+    - --namespace=${namespace:=default}
+    - --restoresession=${restoreSession:=}
+    - --snapshot=${snapshot:=}
+    - --enable-cache=${enableCache:=}
+    - --scratch-dir=${scratchDir:=}

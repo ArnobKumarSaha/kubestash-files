@@ -1,0 +1,283 @@
+kubectl logs -f -n demo pod/stash-backup-mg-backup-1692012000-0-zgvn2 --all-containers
+I0814 11:20:01.390350       1 log.go:194] FLAG: --add-dir-header="false"
+I0814 11:22:06.840138       1 log.go:194] FLAG: --add-dir-header="false"
+I0814 11:20:01.390405       1 log.go:194] FLAG: --alsologtostderr="false"
+I0814 11:20:01.390408       1 log.go:194] FLAG: --appbinding="mgsh"
+I0814 11:20:01.390411       1 log.go:194] FLAG: --appbinding-namespace="demo"
+I0814 11:20:01.390413       1 log.go:194] FLAG: --authentication-database="admin"
+I0814 11:22:06.840175       1 log.go:194] FLAG: --alsologtostderr="false"
+I0814 11:22:06.840179       1 log.go:194] FLAG: --backupsession="mg-backup-1692012000"
+I0814 11:22:06.840181       1 log.go:194] FLAG: --bucket="arnob"
+I0814 11:22:06.840183       1 log.go:194] FLAG: --bypass-validating-webhook-xray="false"
+I0814 11:22:06.840186       1 log.go:194] FLAG: --enable-cache="true"
+I0814 11:22:06.840189       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0814 11:20:01.390416       1 log.go:194] FLAG: --backupsession="mg-backup-1692012000"
+I0814 11:20:01.390420       1 log.go:194] FLAG: --bucket="arnob"
+I0814 11:20:01.390423       1 log.go:194] FLAG: --enable-cache="true"
+I0814 11:20:01.390427       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0814 11:22:06.840191       1 log.go:194] FLAG: --help="false"
+I0814 11:20:01.390431       1 log.go:194] FLAG: --help="false"
+I0814 11:22:06.840194       1 log.go:194] FLAG: --invoker-kind="BackupConfiguration"
+I0814 11:22:06.840196       1 log.go:194] FLAG: --invoker-name="mg-backup"
+I0814 11:22:06.840198       1 log.go:194] FLAG: --kubeconfig=""
+I0814 11:22:06.840201       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0814 11:22:06.840203       1 log.go:194] FLAG: --log-dir=""
+I0814 11:22:06.840206       1 log.go:194] FLAG: --log-file=""
+I0814 11:20:01.390434       1 log.go:194] FLAG: --hostname="host-0"
+I0814 11:20:01.390436       1 log.go:194] FLAG: --kubeconfig=""
+I0814 11:20:01.390442       1 log.go:194] FLAG: --license-apiservice="v1beta1.admission.stash.appscode.com"
+I0814 11:20:01.390445       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0814 11:22:06.840209       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0814 11:22:06.840212       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0814 11:22:06.840214       1 log.go:194] FLAG: --logtostderr="true"
+I0814 11:20:01.390448       1 log.go:194] FLAG: --log-dir=""
+I0814 11:20:01.390450       1 log.go:194] FLAG: --log-file=""
+I0814 11:20:01.390453       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0814 11:20:01.390456       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0814 11:20:01.390458       1 log.go:194] FLAG: --logtostderr="true"
+I0814 11:20:01.390461       1 log.go:194] FLAG: --master=""
+I0814 11:20:01.390463       1 log.go:194] FLAG: --max-concurrency="3"
+I0814 11:22:06.840216       1 log.go:194] FLAG: --master=""
+I0814 11:22:06.840221       1 log.go:194] FLAG: --max-connections="0"
+I0814 11:22:06.840225       1 log.go:194] FLAG: --metrics-enabled="true"
+I0814 11:22:06.840229       1 log.go:194] FLAG: --metrics-labels="[]"
+I0814 11:20:01.390466       1 log.go:194] FLAG: --max-connections="0"
+I0814 11:22:06.840232       1 log.go:194] FLAG: --metrics-pushgateway-url="http://stash-stash-enterprise.stash.svc:56789"
+I0814 11:22:06.840235       1 log.go:194] FLAG: --namespace="demo"
+I0814 11:22:06.840238       1 log.go:194] FLAG: --one-output="false"
+I0814 11:22:06.840240       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0814 11:20:01.390469       1 log.go:194] FLAG: --mongo-args=""
+I0814 11:20:01.390473       1 log.go:194] FLAG: --namespace="demo"
+I0814 11:20:01.390475       1 log.go:194] FLAG: --one-output="false"
+I0814 11:20:01.390478       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0814 11:20:01.390481       1 log.go:194] FLAG: --path="rs"
+I0814 11:20:01.390483       1 log.go:194] FLAG: --provider="s3"
+I0814 11:20:01.390486       1 log.go:194] FLAG: --region="us-east-1"
+I0814 11:22:06.840243       1 log.go:194] FLAG: --path="rs"
+I0814 11:22:06.840245       1 log.go:194] FLAG: --provider="s3"
+I0814 11:22:06.840248       1 log.go:194] FLAG: --region="us-east-1"
+I0814 11:22:06.840250       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0814 11:22:06.840253       1 log.go:194] FLAG: --skip-headers="false"
+I0814 11:22:06.840255       1 log.go:194] FLAG: --skip-log-headers="false"
+I0814 11:22:06.840258       1 log.go:194] FLAG: --stderrthreshold="2"
+I0814 11:22:06.840261       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0814 11:22:06.840264       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0814 11:22:06.840266       1 log.go:194] FLAG: --target-kind="AppBinding"
+I0814 11:20:01.390489       1 log.go:194] FLAG: --retention-dry-run="false"
+I0814 11:20:01.390491       1 log.go:194] FLAG: --retention-keep-daily="0"
+I0814 11:20:01.390494       1 log.go:194] FLAG: --retention-keep-hourly="0"
+I0814 11:20:01.390498       1 log.go:194] FLAG: --retention-keep-last="5"
+I0814 11:20:01.390503       1 log.go:194] FLAG: --retention-keep-monthly="0"
+I0814 11:20:01.390512       1 log.go:194] FLAG: --retention-keep-tags="[]"
+I0814 11:20:01.390514       1 log.go:194] FLAG: --retention-keep-weekly="0"
+I0814 11:20:01.390516       1 log.go:194] FLAG: --retention-keep-yearly="0"
+I0814 11:20:01.390519       1 log.go:194] FLAG: --retention-prune="true"
+I0814 11:20:01.390522       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0814 11:20:01.390525       1 log.go:194] FLAG: --skip-headers="false"
+I0814 11:20:01.390527       1 log.go:194] FLAG: --skip-log-headers="false"
+I0814 11:20:01.390530       1 log.go:194] FLAG: --stderrthreshold="2"
+I0814 11:20:01.390532       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0814 11:20:01.390535       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0814 11:20:01.390537       1 log.go:194] FLAG: --v="0"
+I0814 11:20:01.390541       1 log.go:194] FLAG: --vmodule=""
+I0814 11:20:01.390544       1 log.go:194] FLAG: --wait-timeout="300"
+I0814 11:22:06.840269       1 log.go:194] FLAG: --target-name="mgsh"
+I0814 11:22:06.840271       1 log.go:194] FLAG: --target-namespace="demo"
+I0814 11:22:06.840275       1 log.go:194] FLAG: --use-kubeapiserver-fqdn-for-aks="true"
+I0814 11:22:06.840278       1 log.go:194] FLAG: --v="0"
+I0814 11:22:06.840281       1 log.go:194] FLAG: --vmodule=""
+W0814 11:22:06.840929       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0814 11:22:06.845732       1 status.go:69] Reading backup output from file: /stash-tmp/output/output.json
+I0814 11:22:06.845879       1 status.go:100] Updating post backup status.......
+I0814 11:22:06.848723       1 status.go:381] Waiting for all other targets/hosts to complete their backup.....
+I0814 11:22:06.849753       1 status.go:300] Applying retention policy.....
+I0814 11:22:06.849815       1 commands.go:184] Cleaning old snapshots according to retention policy
+[golang-sh]$ /bin/restic forget --quiet --json --keep-last 5 --prune --cache-dir /stash-tmp/restic-cache
+unable to open cache: readVersion: open /stash-tmp/restic-cache/00cda33be11be9747ab7ad9ffe38f48475dd0c58ce84d37afdbb5dfb1889ad17/version: permission denied
+W0814 11:20:01.390727       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0814 11:20:01.406918       1 commands.go:100] Checking whether the backend repository exist or not....
+[golang-sh]$ /bin/restic snapshots --json --no-lock --cache-dir /stash-tmp/restic-cache
+Fatal: unable to open config file: Stat: The specified key does not exist.
+Is there a repository at the following location?
+s3:us-east-1.linodeobjects.com/arnob/rs
+I0814 11:20:03.342554       1 commands.go:111] Initializing new restic repository in the backend....
+[golang-sh]$ /bin/restic init --cache-dir /stash-tmp/restic-cache
+I0814 11:20:09.178678       1 commands.go:428] sh-output: created restic repository 00cda33be1 at s3:us-east-1.linodeobjects.com/arnob/rs
+
+Please note that knowledge of your password is required to access
+the repository. Losing your password means that your data is
+irrecoverably lost.
+
+I0814 11:20:09.184093       1 backup.go:101] Waiting for the backend repository.....
+I0814 11:20:09.187896       1 utils.go:75] Checking database connection
+I0814 11:20:16.595961       1 backup.go:615] finding primary and secondary instances of cnfRepSet/mgsh-configsvr-0.mgsh-configsvr-pods.demo.svc:27017,mgsh-configsvr-1.mgsh-configsvr-pods.demo.svc:27017
+I0814 11:20:18.035357       1 backup.go:657] Disabling balancer of  mgsh.demo.svc
+I0814 11:20:20.968527       1 backup.go:712] Attempting to lock configserver cnfRepSet/mgsh-configsvr-0.mgsh-configsvr-pods.demo.svc:27017,mgsh-configsvr-1.mgsh-configsvr-pods.demo.svc:27017
+I0814 11:20:23.898423       1 backup.go:768] Attempting to lock secondary member mgsh-configsvr-1.mgsh-configsvr-pods.demo.svc.cluster.local:27017
+I0814 11:20:25.381909       1 backup.go:408] processing backupOptions for  mgsh-configsvr-1.mgsh-configsvr-pods.demo.svc.cluster.local:27017
+I0814 11:20:28.290968       1 backup.go:615] finding primary and secondary instances of shard0/mgsh-shard0-0.mgsh-shard0-pods.demo.svc:27017,mgsh-shard0-1.mgsh-shard0-pods.demo.svc:27017
+I0814 11:20:29.707553       1 backup.go:768] Attempting to lock secondary member mgsh-shard0-1.mgsh-shard0-pods.demo.svc.cluster.local:27017
+I0814 11:20:31.173261       1 backup.go:408] processing backupOptions for  mgsh-shard0-1.mgsh-shard0-pods.demo.svc.cluster.local:27017
+I0814 11:20:34.076105       1 backup.go:615] finding primary and secondary instances of shard1/mgsh-shard1-0.mgsh-shard1-pods.demo.svc:27017,mgsh-shard1-1.mgsh-shard1-pods.demo.svc:27017
+I0814 11:20:35.532935       1 backup.go:768] Attempting to lock secondary member mgsh-shard1-1.mgsh-shard1-pods.demo.svc.cluster.local:27017
+I0814 11:20:37.011892       1 backup.go:408] processing backupOptions for  mgsh-shard1-1.mgsh-shard1-pods.demo.svc.cluster.local:27017
+I0814 11:20:39.841383       1 backup.go:615] finding primary and secondary instances of shard2/mgsh-shard2-0.mgsh-shard2-pods.demo.svc:27017,mgsh-shard2-1.mgsh-shard2-pods.demo.svc:27017
+I0814 11:20:41.277377       1 backup.go:768] Attempting to lock secondary member mgsh-shard2-1.mgsh-shard2-pods.demo.svc.cluster.local:27017
+I0814 11:20:42.722420       1 backup.go:408] processing backupOptions for  mgsh-shard2-1.mgsh-shard2-pods.demo.svc.cluster.local:27017
+I0814 11:20:42.722446       1 backup.go:583] processing backup.
+I0814 11:20:42.722576       1 commands.go:153] Backing up stdin data
+I0814 11:20:42.722586       1 commands.go:153] Backing up stdin data
+I0814 11:20:42.722594       1 commands.go:153] Backing up stdin data
+2023-08-14T11:20:42.749+0000	writing admin.system.users to archive on stdout
+2023-08-14T11:20:42.752+0000	done dumping admin.system.users (2 documents)
+2023-08-14T11:20:42.752+0000	writing admin.system.roles to archive on stdout
+2023-08-14T11:20:42.753+0000	writing admin.system.users to archive on stdout
+2023-08-14T11:20:42.754+0000	done dumping admin.system.roles (1 document)
+2023-08-14T11:20:42.754+0000	writing admin.system.version to archive on stdout
+2023-08-14T11:20:42.757+0000	done dumping admin.system.users (2 documents)
+2023-08-14T11:20:42.757+0000	writing admin.system.roles to archive on stdout
+2023-08-14T11:20:42.759+0000	done dumping admin.system.roles (1 document)
+2023-08-14T11:20:42.759+0000	writing admin.system.users to archive on stdout
+2023-08-14T11:20:42.760+0000	writing admin.system.version to archive on stdout
+2023-08-14T11:20:42.763+0000	done dumping admin.system.users (2 documents)
+2023-08-14T11:20:42.764+0000	writing admin.system.roles to archive on stdout
+2023-08-14T11:20:42.766+0000	done dumping admin.system.roles (1 document)
+2023-08-14T11:20:42.767+0000	writing admin.system.version to archive on stdout
+2023-08-14T11:20:42.773+0000	done dumping admin.system.version (4 documents)
+2023-08-14T11:20:42.774+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-14T11:20:42.774+0000	writing config.rangeDeletions to archive on stdout
+2023-08-14T11:20:42.777+0000	writing config.tenantMigrationDonors to archive on stdout
+2023-08-14T11:20:42.780+0000	writing config.vectorClock to archive on stdout
+2023-08-14T11:20:42.790+0000	done dumping config.vectorClock (1 document)
+2023-08-14T11:20:42.790+0000	writing config.tenantMigrationRecipients to archive on stdout
+2023-08-14T11:20:42.790+0000	done dumping config.tenantMigrationDonors (0 documents)
+2023-08-14T11:20:42.791+0000	writing config.collection_critical_sections to archive on stdout
+2023-08-14T11:20:42.795+0000	done dumping config.tenantMigrationRecipients (0 documents)
+2023-08-14T11:20:42.795+0000	done dumping admin.system.version (4 documents)
+2023-08-14T11:20:42.795+0000	writing config.system.sharding_ddl_coordinators to archive on stdout
+2023-08-14T11:20:42.796+0000	writing config.vectorClock to archive on stdout
+2023-08-14T11:20:42.796+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-14T11:20:42.801+0000	writing config.rangeDeletions to archive on stdout
+2023-08-14T11:20:42.801+0000	done dumping config.collection_critical_sections (0 documents)
+2023-08-14T11:20:42.802+0000	writing config.external_validation_keys to archive on stdout
+2023-08-14T11:20:42.815+0000	writing config.tenantMigrationRecipients to archive on stdout
+2023-08-14T11:20:42.821+0000	done dumping admin.system.version (2 documents)
+2023-08-14T11:20:42.823+0000	writing config.changelog to archive on stdout
+2023-08-14T11:20:42.821+0000	done dumping kubedb-system.health-check (3 documents)
+2023-08-14T11:20:42.822+0000	writing config.migrationCoordinators to archive on stdout
+2023-08-14T11:20:42.825+0000	writing config.chunks to archive on stdout
+2023-08-14T11:20:42.828+0000	writing config.actionlog to archive on stdout
+2023-08-14T11:20:42.846+0000	done dumping config.rangeDeletions (2 documents)
+2023-08-14T11:20:42.854+0000	done dumping config.migrationCoordinators (0 documents)
+2023-08-14T11:20:42.856+0000	done dumping config.rangeDeletions (0 documents)
+2023-08-14T11:20:42.857+0000	done dumping config.tenantMigrationRecipients (0 documents)
+2023-08-14T11:20:42.858+0000	writing config.tenantMigrationDonors to archive on stdout
+2023-08-14T11:20:42.859+0000	writing config.collection_critical_sections to archive on stdout
+2023-08-14T11:20:42.862+0000	done dumping config.system.sharding_ddl_coordinators (0 documents)
+2023-08-14T11:20:42.865+0000	writing config.lockpings to archive on stdout
+2023-08-14T11:20:42.875+0000	done dumping config.tenantMigrationDonors (0 documents)
+2023-08-14T11:20:42.875+0000	done dumping kubedb-system.health-check (1 document)
+2023-08-14T11:20:42.876+0000	writing config.migrationRecipients to archive on stdout
+2023-08-14T11:20:42.876+0000	writing config.external_validation_keys to archive on stdout
+2023-08-14T11:20:42.886+0000	done dumping config.actionlog (5 documents)
+2023-08-14T11:20:42.887+0000	done dumping config.lockpings (4 documents)
+2023-08-14T11:20:42.886+0000	done dumping config.collection_critical_sections (0 documents)
+2023-08-14T11:20:42.887+0000	done dumping config.vectorClock (1 document)
+2023-08-14T11:20:42.889+0000	writing config.shards to archive on stdout
+2023-08-14T11:20:42.889+0000	writing config.locks to archive on stdout
+2023-08-14T11:20:42.901+0000	done dumping config.external_validation_keys (0 documents)
+2023-08-14T11:20:42.903+0000	writing captured oplog to 
+2023-08-14T11:20:42.914+0000	done dumping config.locks (4 documents)
+2023-08-14T11:20:42.924+0000	writing config.settings to archive on stdout
+2023-08-14T11:20:42.928+0000	done dumping config.shards (3 documents)
+2023-08-14T11:20:42.928+0000	done dumping config.migrationRecipients (0 documents)
+2023-08-14T11:20:42.928+0000	writing config.tags to archive on stdout
+2023-08-14T11:20:42.936+0000	done dumping config.external_validation_keys (0 documents)
+2023-08-14T11:20:42.939+0000	writing captured oplog to 
+2023-08-14T11:20:42.963+0000	done dumping config.tags (3 documents)
+2023-08-14T11:20:42.964+0000	writing config.collections to archive on stdout
+2023-08-14T11:20:43.008+0000		dumped 1 oplog entry
+2023-08-14T11:20:43.019+0000		dumped 1 oplog entry
+2023-08-14T11:20:49.083+0000	done dumping config.changelog (1047 documents)
+2023-08-14T11:20:49.084+0000	writing config.databases to archive on stdout
+2023-08-14T11:20:49.085+0000	done dumping config.collections (2 documents)
+2023-08-14T11:20:49.085+0000	done dumping config.settings (3 documents)
+2023-08-14T11:20:49.086+0000	writing admin.kubedb to archive on stdout
+2023-08-14T11:20:49.086+0000	writing config.BackupControl to archive on stdout
+2023-08-14T11:20:49.100+0000	done dumping config.chunks (1029 documents)
+2023-08-14T11:20:49.100+0000	writing config.version to archive on stdout
+2023-08-14T11:20:49.101+0000	done dumping config.databases (1 document)
+2023-08-14T11:20:49.101+0000	writing config.migrations to archive on stdout
+2023-08-14T11:20:49.108+0000	done dumping config.version (1 document)
+2023-08-14T11:20:49.108+0000	writing config.reshardingOperations_temp to archive on stdout
+2023-08-14T11:20:49.109+0000	done dumping config.migrations (0 documents)
+2023-08-14T11:20:49.114+0000	done dumping config.BackupControl (1 document)
+2023-08-14T11:20:49.115+0000	done dumping admin.kubedb (1 document)
+2023-08-14T11:20:49.119+0000	done dumping config.reshardingOperations_temp (0 documents)
+2023-08-14T11:20:49.120+0000	writing captured oplog to 
+2023-08-14T11:20:49.123+0000		dumped 1 oplog entry
+I0814 11:20:50.763874       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":9598,"total_files_processed":1,"total_bytes_processed":9315,"total_duration":3.894217564,"snapshot_id":"cc7f339c"}
+
+I0814 11:20:50.763991       1 commands.go:153] Backing up stdin data
+2023-08-14T11:20:50.789+0000	writing admin.system.users to archive on stdout
+2023-08-14T11:20:50.791+0000	done dumping admin.system.users (2 documents)
+2023-08-14T11:20:50.792+0000	writing admin.system.roles to archive on stdout
+2023-08-14T11:20:50.793+0000	done dumping admin.system.roles (1 document)
+2023-08-14T11:20:50.793+0000	writing admin.system.version to archive on stdout
+2023-08-14T11:20:50.805+0000	done dumping admin.system.version (4 documents)
+2023-08-14T11:20:50.805+0000	writing config.vectorClock to archive on stdout
+2023-08-14T11:20:50.805+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-14T11:20:50.806+0000	writing config.rangeDeletions to archive on stdout
+2023-08-14T11:20:50.809+0000	writing config.tenantMigrationDonors to archive on stdout
+2023-08-14T11:20:50.877+0000	done dumping config.tenantMigrationDonors (0 documents)
+2023-08-14T11:20:50.877+0000	done dumping config.rangeDeletions (0 documents)
+2023-08-14T11:20:50.877+0000	writing config.collection_critical_sections to archive on stdout
+2023-08-14T11:20:50.877+0000	writing config.tenantMigrationRecipients to archive on stdout
+2023-08-14T11:20:50.884+0000	done dumping config.collection_critical_sections (0 documents)
+2023-08-14T11:20:50.884+0000	done dumping config.tenantMigrationRecipients (0 documents)
+2023-08-14T11:20:50.884+0000	writing config.external_validation_keys to archive on stdout
+2023-08-14T11:20:50.884+0000	writing config.migrationRecipients to archive on stdout
+2023-08-14T11:20:50.897+0000	done dumping config.vectorClock (1 document)
+2023-08-14T11:20:50.914+0000	done dumping kubedb-system.health-check (1 document)
+2023-08-14T11:20:50.925+0000	done dumping config.external_validation_keys (0 documents)
+2023-08-14T11:20:50.929+0000	done dumping config.migrationRecipients (0 documents)
+2023-08-14T11:20:50.930+0000	writing captured oplog to 
+2023-08-14T11:20:50.931+0000		dumped 1 oplog entry
+I0814 11:20:51.045544       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":8471,"total_files_processed":1,"total_bytes_processed":8188,"total_duration":4.083891344,"snapshot_id":"d793bd36"}
+
+I0814 11:20:52.183513       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":837872,"total_files_processed":1,"total_bytes_processed":837587,"total_duration":5.224917968,"snapshot_id":"44b968c4"}
+
+I0814 11:20:57.824569       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":1,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":8471,"total_files_processed":1,"total_bytes_processed":8188,"total_duration":3.177424163,"snapshot_id":"4cb58045"}
+
+I0814 11:20:59.310673       1 backup.go:690] Enabling balancer of  mgsh.demo.svc
+MongoServerError: operation exceeded time limit
+E0814 11:21:59.739361       1 backup.go:599] EOF
+I0814 11:21:59.739383       1 backup.go:794] Attempting to unlock secondary member mgsh-configsvr-1.mgsh-configsvr-pods.demo.svc.cluster.local:27017
+I0814 11:22:01.189619       1 backup.go:794] Attempting to unlock secondary member mgsh-shard0-1.mgsh-shard0-pods.demo.svc.cluster.local:27017
+I0814 11:22:02.665276       1 backup.go:794] Attempting to unlock secondary member mgsh-shard1-1.mgsh-shard1-pods.demo.svc.cluster.local:27017
+I0814 11:22:04.239650       1 backup.go:794] Attempting to unlock secondary member mgsh-shard2-1.mgsh-shard2-pods.demo.svc.cluster.local:27017
+I0814 11:23:26.456214       1 commands.go:428] sh-output: [{"tags":null,"host":"host-2","paths":["/dump"],"keep":[{"time":"2023-08-14T11:20:50.769819288Z","tree":"76568e51d6f63e9fe9a46e2247f630de91c5d4ad949c7ef5f211c82b6f5dfda4","paths":["/dump"],"hostname":"host-2","username":"root","id":"4cb58045e3c32b03f19ee06f1721351a26f904a8099448697e8077c4d043cbf0","short_id":"4cb58045"}],"remove":null,"reasons":[{"snapshot":{"time":"2023-08-14T11:20:50.769819288Z","tree":"76568e51d6f63e9fe9a46e2247f630de91c5d4ad949c7ef5f211c82b6f5dfda4","paths":["/dump"],"hostname":"host-2","username":"root"},"matches":["last snapshot"],"counters":{"last":4}}]},{"tags":null,"host":"host-1","paths":["/dump"],"keep":[{"time":"2023-08-14T11:20:42.731203251Z","tree":"d157285f961e5d88cbdd35893220e1aabc9839697a346be83c674a6ab7a7d004","paths":["/dump"],"hostname":"host-1","username":"root","id":"d793bd3652ef388214aab1d419303e79e0909a3a557dff9f074b12380afa9c6e","short_id":"d793bd36"}],"remove":null,"reasons":[{"snapshot":{"time":"2023-08-14T11:20:42.731203251Z","tree":"d157285f961e5d88cbdd35893220e1aabc9839697a346be83c674a6ab7a7d004","paths":["/dump"],"hostname":"host-1","username":"root"},"matches":["last snapshot"],"counters":{"last":4}}]},{"tags":null,"host":"confighost","paths":["/dump"],"keep":[{"time":"2023-08-14T11:20:42.736229577Z","tree":"58fec8a78a2ef7a9ba2951e4d940d4e83ca03e04e71db96d1b77fa85809ee0a1","paths":["/dump"],"hostname":"confighost","username":"root","id":"44b968c4b498e7fd79bc00669fa4d14027a703e8789dcd8fadcc07bc1d3ba2d6","short_id":"44b968c4"}],"remove":null,"reasons":[{"snapshot":{"time":"2023-08-14T11:20:42.736229577Z","tree":"58fec8a78a2ef7a9ba2951e4d940d4e83ca03e04e71db96d1b77fa85809ee0a1","paths":["/dump"],"hostname":"confighost","username":"root"},"matches":["last snapshot"],"counters":{"last":4}}]},{"tags":null,"host":"host-0","paths":["/dump"],"keep":[{"time":"2023-08-14T11:20:42.731194768Z","tree":"aa03e30c2a638a5e37d98c3edcf88f5b74089d3e9292d69341098420c88b7f14","paths":["/dump"],"hostname":"host-0","username":"root","id":"cc7f339c8e435bdd17910cb470304915a8e9632a265a73241f1ef396b49b8f39","short_id":"cc7f339c"}],"remove":null,"reasons":[{"snapshot":{"time":"2023-08-14T11:20:42.731194768Z","tree":"aa03e30c2a638a5e37d98c3edcf88f5b74089d3e9292d69341098420c88b7f14","paths":["/dump"],"hostname":"host-0","username":"root"},"matches":["last snapshot"],"counters":{"last":4}}]}]
+
+I0814 11:23:26.466898       1 status.go:320] Verifying repository integrity...........
+I0814 11:23:26.466979       1 commands.go:332] Checking integrity of repository
+[golang-sh]$ /bin/restic check --no-lock --cache-dir /stash-tmp/restic-cache
+unable to create temporary directory for cache during check, disabling cache: mkdir /stash-tmp/restic-cache/restic-check-cache-718146031: permission denied
+I0814 11:23:33.372018       1 commands.go:428] sh-output: load indexes
+check all packs
+check snapshots, trees and blobs
+[0:01] 100.00%  4 / 4 snapshots
+
+no errors were found
+
+I0814 11:23:33.372040       1 commands.go:341] Reading repository status
+[golang-sh]$ /bin/restic stats --cache-dir /stash-tmp/restic-cache --quiet --json --mode raw-data --no-lock
+unable to open cache: readVersion: open /stash-tmp/restic-cache/00cda33be11be9747ab7ad9ffe38f48475dd0c58ce84d37afdbb5dfb1889ad17/version: permission denied
+I0814 11:23:40.517446       1 commands.go:428] sh-output: {"total_size":864412,"total_file_count":0,"total_blob_count":8}
+
+I0814 11:23:40.533603       1 status.go:340] Pushing repository metrics...........
+I0814 11:23:40.555759       1 status.go:356] Updating repository status......
+I0814 11:23:40.611218       1 main.go:45] Exiting Stash Main

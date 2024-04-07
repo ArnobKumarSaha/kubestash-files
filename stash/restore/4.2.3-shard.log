@@ -1,0 +1,197 @@
+kubectl logs -f -n demo pod/stash-restore-mg-restore-0-4g6b2 -c mongodb-restore-4-2-3-0
+I0809 05:13:43.800979       1 log.go:194] FLAG: --add-dir-header="false"
+I0809 05:13:43.801022       1 log.go:194] FLAG: --alsologtostderr="false"
+I0809 05:13:43.801025       1 log.go:194] FLAG: --appbinding="mg-res"
+I0809 05:13:43.801027       1 log.go:194] FLAG: --appbinding-namespace="demo"
+I0809 05:13:43.801033       1 log.go:194] FLAG: --authentication-database="admin"
+I0809 05:13:43.801035       1 log.go:194] FLAG: --bucket="arnob"
+I0809 05:13:43.801037       1 log.go:194] FLAG: --enable-cache="false"
+I0809 05:13:43.801041       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0809 05:13:43.801044       1 log.go:194] FLAG: --help="false"
+I0809 05:13:43.801046       1 log.go:194] FLAG: --hostname=""
+I0809 05:13:43.801048       1 log.go:194] FLAG: --kubeconfig=""
+I0809 05:13:43.801054       1 log.go:194] FLAG: --license-apiservice="v1beta1.admission.stash.appscode.com"
+I0809 05:13:43.801058       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0809 05:13:43.801060       1 log.go:194] FLAG: --log-dir=""
+I0809 05:13:43.801062       1 log.go:194] FLAG: --log-file=""
+I0809 05:13:43.801066       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0809 05:13:43.801069       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0809 05:13:43.801072       1 log.go:194] FLAG: --logtostderr="true"
+I0809 05:13:43.801074       1 log.go:194] FLAG: --master=""
+I0809 05:13:43.801077       1 log.go:194] FLAG: --max-concurrency="3"
+I0809 05:13:43.801080       1 log.go:194] FLAG: --max-connections="0"
+I0809 05:13:43.801083       1 log.go:194] FLAG: --mongo-args=""
+I0809 05:13:43.801086       1 log.go:194] FLAG: --namespace="demo"
+I0809 05:13:43.801090       1 log.go:194] FLAG: --one-output="false"
+I0809 05:13:43.801092       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0809 05:13:43.801095       1 log.go:194] FLAG: --path="4.2.3-shard"
+I0809 05:13:43.801098       1 log.go:194] FLAG: --provider="s3"
+I0809 05:13:43.801101       1 log.go:194] FLAG: --region="us-east-1"
+I0809 05:13:43.801105       1 log.go:194] FLAG: --restoresession="mg-restore"
+I0809 05:13:43.801107       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0809 05:13:43.801110       1 log.go:194] FLAG: --skip-headers="false"
+I0809 05:13:43.801113       1 log.go:194] FLAG: --skip-log-headers="false"
+I0809 05:13:43.801115       1 log.go:194] FLAG: --snapshot="latest"
+I0809 05:13:43.801117       1 log.go:194] FLAG: --source-hostname=""
+I0809 05:13:43.801120       1 log.go:194] FLAG: --stderrthreshold="2"
+I0809 05:13:43.801122       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0809 05:13:43.801125       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0809 05:13:43.801128       1 log.go:194] FLAG: --v="0"
+I0809 05:13:43.801131       1 log.go:194] FLAG: --vmodule=""
+I0809 05:13:43.801134       1 log.go:194] FLAG: --wait-timeout="300"
+W0809 05:13:43.801270       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0809 05:13:43.819279       1 restore.go:309] processing backupOptions for  cnfRepSet/mg-res-configsvr-0.mg-res-configsvr-pods.demo.svc:27017,mg-res-configsvr-1.mg-res-configsvr-pods.demo.svc:27017
+I0809 05:13:43.819289       1 restore.go:309] processing backupOptions for  shard1/mg-res-shard1-0.mg-res-shard1-pods.demo.svc:27017,mg-res-shard1-1.mg-res-shard1-pods.demo.svc:27017
+I0809 05:13:43.819292       1 restore.go:309] processing backupOptions for  shard2/mg-res-shard2-0.mg-res-shard2-pods.demo.svc:27017,mg-res-shard2-1.mg-res-shard2-pods.demo.svc:27017
+I0809 05:13:43.819294       1 restore.go:309] processing backupOptions for  shard0/mg-res-shard0-0.mg-res-shard0-pods.demo.svc:27017,mg-res-shard0-1.mg-res-shard0-pods.demo.svc:27017
+I0809 05:13:43.819300       1 restore.go:384] processing restore.
+I0809 05:13:43.819302       1 utils.go:75] Checking database connection
+I0809 05:13:43.819489       1 restore.go:397] 0 ->>> confighost  latest ;;;;; [{Name:mongorestore Args:[--host cnfRepSet/mg-res-configsvr-0.mg-res-configsvr-pods.demo.svc:27017,mg-res-configsvr-1.mg-res-configsvr-pods.demo.svc:27017 --archive --username=root --password=E8~*TJvWg6xh)q!5 --authenticationDatabase admin --oplogReplay]}] 
+I0809 05:13:43.819516       1 restore.go:397] 1 ->>> host-1  latest ;;;;; [{Name:mongorestore Args:[--host shard1/mg-res-shard1-0.mg-res-shard1-pods.demo.svc:27017,mg-res-shard1-1.mg-res-shard1-pods.demo.svc:27017 --archive --username=root --password=E8~*TJvWg6xh)q!5 --authenticationDatabase admin --oplogReplay]}] 
+I0809 05:13:43.819526       1 restore.go:397] 2 ->>> host-2  latest ;;;;; [{Name:mongorestore Args:[--host shard2/mg-res-shard2-0.mg-res-shard2-pods.demo.svc:27017,mg-res-shard2-1.mg-res-shard2-pods.demo.svc:27017 --archive --username=root --password=E8~*TJvWg6xh)q!5 --authenticationDatabase admin --oplogReplay]}] 
+I0809 05:13:43.819536       1 restore.go:397] 3 ->>> host-0  latest ;;;;; [{Name:mongorestore Args:[--host shard0/mg-res-shard0-0.mg-res-shard0-pods.demo.svc:27017,mg-res-shard0-1.mg-res-shard0-pods.demo.svc:27017 --archive --username=root --password=E8~*TJvWg6xh)q!5 --authenticationDatabase admin --oplogReplay]}] 
+I0809 05:13:43.819555       1 commands.go:297] Dumping backed up data
+I0809 05:13:43.819563       1 commands.go:297] Dumping backed up data
+I0809 05:13:43.819578       1 commands.go:297] Dumping backed up data
+2023-08-09T05:13:43.851+0000	WARNING: ignoring unsupported URI parameter 'replicaset'
+2023-08-09T05:13:43.851+0000	WARNING: ignoring unsupported URI parameter 'replicaset'
+2023-08-09T05:13:43.851+0000	WARNING: ignoring unsupported URI parameter 'replicaset'
+2023-08-09T05:13:52.574+0000	preparing collections to restore from
+2023-08-09T05:13:52.574+0000	don't know what to do with subdirectory "", skipping...
+2023-08-09T05:13:52.574+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-09T05:13:52.585+0000	restoring users from archive on stdin
+2023-08-09T05:13:52.608+0000	replaying oplog
+2023-08-09T05:13:52.608+0000	applied 0 oplog entries
+2023-08-09T05:13:52.766+0000	preparing collections to restore from
+2023-08-09T05:13:52.766+0000	don't know what to do with subdirectory "", skipping...
+2023-08-09T05:13:52.766+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-09T05:13:52.776+0000	restoring users from archive on stdin
+2023-08-09T05:13:52.797+0000	replaying oplog
+2023-08-09T05:13:52.798+0000	applied 0 oplog entries
+2023-08-09T05:13:52.873+0000	0 document(s) restored successfully. 0 document(s) failed to restore.
+I0809 05:13:52.875464       1 commands.go:428] sh-output: 
+I0809 05:13:52.875524       1 commands.go:297] Dumping backed up data
+2023-08-09T05:13:52.877+0000	WARNING: ignoring unsupported URI parameter 'replicaset'
+2023-08-09T05:13:53.071+0000	0 document(s) restored successfully. 0 document(s) failed to restore.
+I0809 05:13:53.073062       1 commands.go:428] sh-output: 
+2023-08-09T05:13:53.217+0000	preparing collections to restore from
+2023-08-09T05:13:53.217+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-09T05:13:53.217+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-09T05:13:53.217+0000	don't know what to do with subdirectory "", skipping...
+2023-08-09T05:13:53.227+0000	restoring to existing collection config.mongos without dropping
+2023-08-09T05:13:53.227+0000	reading metadata for config.mongos from archive on stdin
+2023-08-09T05:13:53.227+0000	restoring config.mongos from archive on stdin
+2023-08-09T05:13:53.230+0000	no indexes to restore
+2023-08-09T05:13:53.230+0000	finished restoring config.mongos (2 documents, 0 failures)
+2023-08-09T05:13:53.233+0000	reading metadata for config.settings from archive on stdin
+2023-08-09T05:13:53.243+0000	restoring config.settings from archive on stdin
+2023-08-09T05:13:53.255+0000	no indexes to restore
+2023-08-09T05:13:53.255+0000	finished restoring config.settings (2 documents, 0 failures)
+2023-08-09T05:13:53.255+0000	restoring to existing collection config.lockpings without dropping
+2023-08-09T05:13:53.255+0000	reading metadata for config.lockpings from archive on stdin
+2023-08-09T05:13:53.255+0000	restoring config.lockpings from archive on stdin
+2023-08-09T05:13:53.261+0000	continuing through error: E11000 duplicate key error collection: config.lockpings index: _id_ dup key: { _id: "ConfigServer" }
+2023-08-09T05:13:53.261+0000	restoring indexes for collection config.lockpings from metadata
+2023-08-09T05:13:53.262+0000	finished restoring config.lockpings (8 documents, 1 failure)
+2023-08-09T05:13:53.266+0000	restoring to existing collection admin.kubedb without dropping
+2023-08-09T05:13:53.266+0000	reading metadata for admin.kubedb from archive on stdin
+2023-08-09T05:13:53.266+0000	restoring admin.kubedb from archive on stdin
+2023-08-09T05:13:53.271+0000	restoring to existing collection config.locks without dropping
+2023-08-09T05:13:53.271+0000	reading metadata for config.locks from archive on stdin
+2023-08-09T05:13:53.271+0000	restoring config.locks from archive on stdin
+2023-08-09T05:13:53.271+0000	continuing through error: E11000 duplicate key error collection: admin.kubedb index: _id_ dup key: { _id: "kubedb" }
+2023-08-09T05:13:53.271+0000	no indexes to restore
+2023-08-09T05:13:53.271+0000	finished restoring admin.kubedb (0 documents, 1 failure)
+2023-08-09T05:13:53.272+0000	continuing through error: E11000 duplicate key error collection: config.locks index: _id_ dup key: { _id: "kubedb-system" }
+2023-08-09T05:13:53.272+0000	continuing through error: E11000 duplicate key error collection: config.locks index: _id_ dup key: { _id: "kubedb-system.health-check" }
+2023-08-09T05:13:53.272+0000	restoring indexes for collection config.locks from metadata
+2023-08-09T05:13:53.272+0000	finished restoring config.locks (0 documents, 2 failures)
+2023-08-09T05:13:53.272+0000	restoring to existing collection config.chunks without dropping
+2023-08-09T05:13:53.272+0000	reading metadata for config.chunks from archive on stdin
+2023-08-09T05:13:53.272+0000	restoring config.chunks from archive on stdin
+2023-08-09T05:13:53.273+0000	continuing through error: E11000 duplicate key error collection: config.chunks index: _id_ dup key: { _id: "kubedb-system.health-check-id_MinKey" }
+2023-08-09T05:13:53.273+0000	restoring indexes for collection config.chunks from metadata
+2023-08-09T05:13:53.273+0000	finished restoring config.chunks (0 documents, 1 failure)
+2023-08-09T05:13:53.273+0000	restoring to existing collection config.shards without dropping
+2023-08-09T05:13:53.273+0000	reading metadata for config.shards from archive on stdin
+2023-08-09T05:13:53.273+0000	restoring config.shards from archive on stdin
+2023-08-09T05:13:53.276+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard0" }
+2023-08-09T05:13:53.276+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard1" }
+2023-08-09T05:13:53.276+0000	continuing through error: E11000 duplicate key error collection: config.shards index: _id_ dup key: { _id: "shard2" }
+2023-08-09T05:13:53.276+0000	restoring indexes for collection config.shards from metadata
+2023-08-09T05:13:53.276+0000	finished restoring config.shards (0 documents, 3 failures)
+2023-08-09T05:13:53.276+0000	restoring to existing collection config.collections without dropping
+2023-08-09T05:13:53.277+0000	reading metadata for config.collections from archive on stdin
+2023-08-09T05:13:53.277+0000	restoring config.collections from archive on stdin
+2023-08-09T05:13:53.277+0000	continuing through error: E11000 duplicate key error collection: config.collections index: _id_ dup key: { _id: "kubedb-system.health-check" }
+2023-08-09T05:13:53.277+0000	no indexes to restore
+2023-08-09T05:13:53.277+0000	finished restoring config.collections (0 documents, 1 failure)
+2023-08-09T05:13:53.277+0000	restoring to existing collection config.changelog without dropping
+2023-08-09T05:13:53.277+0000	reading metadata for config.changelog from archive on stdin
+2023-08-09T05:13:53.277+0000	restoring config.changelog from archive on stdin
+2023-08-09T05:13:53.281+0000	restoring to existing collection config.databases without dropping
+2023-08-09T05:13:53.281+0000	reading metadata for config.databases from archive on stdin
+2023-08-09T05:13:53.281+0000	restoring config.databases from archive on stdin
+2023-08-09T05:13:53.291+0000	no indexes to restore
+2023-08-09T05:13:53.291+0000	finished restoring config.changelog (5 documents, 0 failures)
+2023-08-09T05:13:53.291+0000	continuing through error: E11000 duplicate key error collection: config.databases index: _id_ dup key: { _id: "kubedb-system" }
+2023-08-09T05:13:53.291+0000	no indexes to restore
+2023-08-09T05:13:53.291+0000	finished restoring config.databases (0 documents, 1 failure)
+2023-08-09T05:13:53.291+0000	restoring to existing collection config.version without dropping
+2023-08-09T05:13:53.291+0000	reading metadata for config.version from archive on stdin
+2023-08-09T05:13:53.292+0000	restoring config.version from archive on stdin
+2023-08-09T05:13:53.293+0000	reading metadata for config.BackupControl from archive on stdin
+2023-08-09T05:13:53.310+0000	restoring config.BackupControl from archive on stdin
+2023-08-09T05:13:53.326+0000	no indexes to restore
+2023-08-09T05:13:53.326+0000	finished restoring config.BackupControl (1 document, 0 failures)
+2023-08-09T05:13:53.327+0000	continuing through error: E11000 duplicate key error collection: config.version index: _id_ dup key: { _id: 1 }
+2023-08-09T05:13:53.327+0000	no indexes to restore
+2023-08-09T05:13:53.327+0000	finished restoring config.version (0 documents, 1 failure)
+2023-08-09T05:13:53.327+0000	restoring to existing collection config.migrations without dropping
+2023-08-09T05:13:53.327+0000	reading metadata for config.migrations from archive on stdin
+2023-08-09T05:13:53.327+0000	restoring config.migrations from archive on stdin
+2023-08-09T05:13:53.327+0000	restoring indexes for collection config.migrations from metadata
+2023-08-09T05:13:53.327+0000	finished restoring config.migrations (0 documents, 0 failures)
+2023-08-09T05:13:53.327+0000	restoring to existing collection config.tags without dropping
+2023-08-09T05:13:53.327+0000	reading metadata for config.tags from archive on stdin
+2023-08-09T05:13:53.327+0000	restoring config.tags from archive on stdin
+2023-08-09T05:13:53.328+0000	restoring indexes for collection config.tags from metadata
+2023-08-09T05:13:53.328+0000	finished restoring config.tags (0 documents, 0 failures)
+2023-08-09T05:13:53.328+0000	restoring users from archive on stdin
+2023-08-09T05:13:53.353+0000	replaying oplog
+2023-08-09T05:13:53.356+0000	applied 1 oplog entries
+2023-08-09T05:13:53.514+0000	18 document(s) restored successfully. 11 document(s) failed to restore.
+I0809 05:13:53.523207       1 commands.go:428] sh-output: 
+2023-08-09T05:14:01.131+0000	preparing collections to restore from
+2023-08-09T05:14:01.131+0000	don't know what to do with subdirectory "config", skipping...
+2023-08-09T05:14:01.131+0000	don't know what to do with subdirectory "kubedb-system", skipping...
+2023-08-09T05:14:01.131+0000	don't know what to do with subdirectory "", skipping...
+2023-08-09T05:14:01.131+0000	don't know what to do with subdirectory "admin", skipping...
+2023-08-09T05:14:01.141+0000	restoring to existing collection config.cache.databases without dropping
+2023-08-09T05:14:01.141+0000	reading metadata for config.cache.databases from archive on stdin
+2023-08-09T05:14:01.142+0000	restoring config.cache.databases from archive on stdin
+2023-08-09T05:14:01.142+0000	continuing through error: E11000 duplicate key error collection: config.cache.databases index: _id_ dup key: { _id: "kubedb-system" }
+2023-08-09T05:14:01.142+0000	no indexes to restore
+2023-08-09T05:14:01.142+0000	finished restoring config.cache.databases (0 documents, 1 failure)
+2023-08-09T05:14:01.142+0000	restoring to existing collection config.cache.chunks.kubedb-system.health-check without dropping
+2023-08-09T05:14:01.142+0000	reading metadata for config.cache.chunks.kubedb-system.health-check from archive on stdin
+2023-08-09T05:14:01.142+0000	restoring config.cache.chunks.kubedb-system.health-check from archive on stdin
+2023-08-09T05:14:01.143+0000	continuing through error: E11000 duplicate key error collection: config.cache.chunks.kubedb-system.health-check index: _id_ dup key: { _id: { id: MinKey } }
+2023-08-09T05:14:01.143+0000	restoring indexes for collection config.cache.chunks.kubedb-system.health-check from metadata
+2023-08-09T05:14:01.143+0000	finished restoring config.cache.chunks.kubedb-system.health-check (0 documents, 1 failure)
+2023-08-09T05:14:01.147+0000	restoring to existing collection config.cache.collections without dropping
+2023-08-09T05:14:01.147+0000	reading metadata for config.cache.collections from archive on stdin
+2023-08-09T05:14:01.147+0000	restoring config.cache.collections from archive on stdin
+2023-08-09T05:14:01.152+0000	continuing through error: E11000 duplicate key error collection: config.cache.collections index: _id_ dup key: { _id: "kubedb-system.health-check" }
+2023-08-09T05:14:01.152+0000	no indexes to restore
+2023-08-09T05:14:01.152+0000	finished restoring config.cache.collections (0 documents, 1 failure)
+2023-08-09T05:14:01.155+0000	restoring to existing collection kubedb-system.health-check without dropping
+2023-08-09T05:14:01.155+0000	reading metadata for kubedb-system.health-check from archive on stdin
+2023-08-09T05:14:01.156+0000	restoring kubedb-system.health-check from archive on stdin
+2023-08-09T05:14:01.158+0000	restoring indexes for collection kubedb-system.health-check from metadata
+2023-08-09T05:14:01.158+0000	finished restoring kubedb-system.health-check (3 documents, 0 failures)
+2023-08-09T05:14:01.158+0000	restoring users from archive on stdin
+2023-08-09T05:14:01.181+0000	replaying oplog
+2023-08-09T05:14:01.181+0000	applied 0 oplog entries
+2023-08-09T05:14:01.431+0000	3 document(s) restored successfully. 3 document(s) failed to restore.
+I0809 05:14:01.437190       1 commands.go:428] sh-output: 

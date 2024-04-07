@@ -1,0 +1,39 @@
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: nfs-pvc
+#   namespace: demo
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: "longhorn"
+#   resources:
+#     requests:
+#       storage: 1Gi
+
+
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: nfs-try
+#   namespace: demo
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   storageClassName: "nfs"
+#   resources:
+#     requests:
+#       storage: 1Gi
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: long-try
+  namespace: demo
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "longhorn"
+  resources:
+    requests:
+      storage: 1Gi

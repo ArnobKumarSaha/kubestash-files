@@ -1,0 +1,63 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: RestoreSession
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"core.kubestash.com/v1alpha1","kind":"RestoreSession","metadata":{"annotations":{},"name":"sample","namespace":"demo"},"spec":{"addon":{"name":"mongodb-backup-restore-addon","tasks":[{"name":"mongodb-restore-task"}]},"dataSource":{"encryptionSecret":{"name":"encrypt-secret","namespace":"demo"},"repository":"linode-repo","snapshot":"linode-repo-db-backup-frequent-backup-1692692880"},"target":{"apiGroup":"kubedb.com","kind":"MongoDB","name":"restore","namespace":"demo"}}}
+  creationTimestamp: "2023-08-22T08:33:32Z"
+  finalizers:
+  - kubestash.com/cleanup
+  generation: 1
+  name: sample
+  namespace: demo
+  resourceVersion: "398578"
+  uid: 8aebf743-080e-4004-8334-69163815c316
+spec:
+  addon:
+    name: mongodb-backup-restore-addon
+    tasks:
+    - name: mongodb-restore-task
+  dataSource:
+    encryptionSecret:
+      name: encrypt-secret
+      namespace: demo
+    repository: linode-repo
+    snapshot: linode-repo-db-backup-frequent-backup-1692692880
+  target:
+    apiGroup: kubedb.com
+    kind: MongoDB
+    name: restore
+    namespace: demo
+status:
+  components:
+    host-0:
+      duration: 6.911482962s
+      phase: Succeeded
+  conditions:
+  - lastTransitionTime: "2023-08-22T08:33:32Z"
+    message: Validation has been passed successfully.
+    reason: ResourceValidationPassed
+    status: "True"
+    type: ValidationPassed
+  - lastTransitionTime: "2023-08-22T08:33:32Z"
+    message: Restore Executor has been ensured successfully.
+    reason: SuccessfullyEnsuredRestoreExecutor
+    status: "True"
+    type: RestoreExecutorEnsured
+  - lastTransitionTime: "2023-08-22T08:33:39Z"
+    message: Metrics have been pushed successfully.
+    reason: SuccessfullyPushedMetrics
+    status: "True"
+    type: MetricsPushed
+  dependencies:
+  - found: true
+    kind: Snapshot
+    name: linode-repo-db-backup-frequent-backup-1692692880
+    namespace: demo
+  - found: true
+    kind: Addon
+    name: mongodb-backup-restore-addon
+  duration: 8s
+  phase: Succeeded
+  targetFound: true
+  totalComponents: 1

@@ -1,0 +1,60 @@
+apiVersion: storage.kubestash.com/v1alpha1
+kind: Snapshot
+metadata:
+  creationTimestamp: "2023-08-22T08:24:00Z"
+  finalizers:
+  - kubestash.com/cleanup
+  generation: 1
+  name: linode-repo-db-backup-frequent-backup-1692692640
+  namespace: demo
+  ownerReferences:
+  - apiVersion: storage.kubestash.com/v1alpha1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Repository
+    name: linode-repo
+    uid: 75a70af8-461d-4dc0-8381-554d28b49bf3
+  resourceVersion: "397544"
+  uid: 54b147e8-215a-45de-9b2e-9e395b6af980
+spec:
+  appRef:
+    apiGroup: kubedb.com
+    kind: MongoDB
+    name: standalone
+    namespace: demo
+  backupSession: db-backup-frequent-backup-1692692640
+  deletionPolicy: Delete
+  repository: linode-repo
+  session: frequent-backup
+  snapshotID: cji718761cas73cs5kr0
+  type: FullBackup
+status:
+  components:
+    host-0:
+      driver: Restic
+      duration: 7.887161125s
+      integrity: true
+      path: repository/frequent-backup
+      phase: Succeeded
+      resticStats:
+      - hostPath: dump
+        id: 50aeb825045294f56a31f64a1cab1c3246a5b56cf35b8a6c4b11d41e332714ea
+        size: 7.028 KiB
+        uploaded: 7.309 KiB
+      size: 4.886 KiB
+  conditions:
+  - lastTransitionTime: "2023-08-22T08:24:00Z"
+    message: Recent snapshot list updated successfully
+    reason: SuccessfullyUpdatedRecentSnapshotList
+    status: "True"
+    type: RecentSnapshotListUpdated
+  - lastTransitionTime: "2023-08-22T08:24:29Z"
+    message: Metadata uploaded to backend successfully
+    reason: SuccessfullyUploadedSnapshotMetadata
+    status: "True"
+    type: SnapshotMetadataUploaded
+  integrity: true
+  phase: Succeeded
+  size: 4.886 KiB
+  snapshotTime: "2023-08-22T08:24:27Z"
+  totalComponents: 1

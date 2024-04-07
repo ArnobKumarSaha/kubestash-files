@@ -1,0 +1,1 @@
+restic restore 7f63a34620b19e0fbe8a4fe00a1f75bac2fb6a809703e774675e8d3cede10265 --target=/home/arnob/restored/ -r s3:us-east-1.linodeobjects.com/mg-archiver/backup/manifest-backup/repository/manifest/manifests/

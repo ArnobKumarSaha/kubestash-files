@@ -1,0 +1,70 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    batch.kubernetes.io/job-tracking: ""
+  creationTimestamp: "2023-08-22T08:33:32Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: kubestash-restore
+    app.kubernetes.io/managed-by: kubestash.com
+    kubestash.com/invoker-name: sample
+    kubestash.com/invoker-namespace: demo
+  name: sample
+  namespace: demo
+  resourceVersion: "398590"
+  uid: f68513df-8286-4193-97c6-e8e8770d59e5
+spec:
+  backoffLimit: 0
+  completionMode: NonIndexed
+  completions: 1
+  parallelism: 1
+  selector:
+    matchLabels:
+      batch.kubernetes.io/controller-uid: f68513df-8286-4193-97c6-e8e8770d59e5
+  suspend: false
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: kubestash-restore
+        app.kubernetes.io/managed-by: kubestash.com
+        batch.kubernetes.io/controller-uid: f68513df-8286-4193-97c6-e8e8770d59e5
+        batch.kubernetes.io/job-name: sample
+        controller-uid: f68513df-8286-4193-97c6-e8e8770d59e5
+        job-name: sample
+        kubestash.com/invoker-name: sample
+        kubestash.com/invoker-namespace: demo
+    spec:
+      containers:
+      - args:
+        - restore
+        - --namespace=demo
+        - --restoreSession=sample
+        - --snapshotName=linode-repo-db-backup-frequent-backup-1692692880
+        image: arnobkumarsaha/mongodb:sayed_mongo_linux_amd64
+        imagePullPolicy: IfNotPresent
+        name: mongodb-restore-task-0
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      securityContext:
+        runAsGroup: 0
+        runAsUser: 0
+      serviceAccount: sample
+      serviceAccountName: sample
+      terminationGracePeriodSeconds: 30
+status:
+  completionTime: "2023-08-22T08:33:42Z"
+  conditions:
+  - lastProbeTime: "2023-08-22T08:33:42Z"
+    lastTransitionTime: "2023-08-22T08:33:42Z"
+    status: "True"
+    type: Complete
+  ready: 0
+  startTime: "2023-08-22T08:33:32Z"
+  succeeded: 1
+  uncountedTerminatedPods: {}

@@ -1,0 +1,35 @@
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: mongodb-backup-restore-addon
+spec:
+  backupTasks:
+    - name: mongodb-backup-task
+      function: mongodb-backup
+      driver: Restic
+      executor: Job
+      singleton: true
+      # parameters:
+      # - name: taskName
+  restoreTasks:
+    - name: mongodb-restore-task
+      function: mongodb-restore
+      driver: Restic
+      executor: Job
+      singleton: true
+---
+apiVersion: addons.kubestash.com/v1alpha1
+kind: Addon
+metadata:
+  name: kubedb-manifest-addon
+spec:
+  backupTasks:
+    - name: manifest-backup
+      function: kubedb-manifest-backup
+      driver: Restic 
+      executor: Job 
+  restoreTasks:
+    - name: manifest-restore
+      function: kubedb-manifest-restore
+      driver: Restic
+      executor: Job

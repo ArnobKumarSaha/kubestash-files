@@ -1,0 +1,29 @@
+# https://github.com/minio/minio/tree/master/helm/minio#installing-the-chart-toy-setup
+
+# helm install minio \
+# -n minio --create-namespace \
+# --set resources.requests.memory=512Mi \
+# --set replicas=1 --set persistence.enabled=false --set mode=standalone \
+# --set rootUser=rootuser,rootPassword=rootpass123  \
+# --set users[0].accessKey=accessKey,users[0].secretKey=secretKey,users[0].policy=consoleAdmin \
+# minio/minio
+
+# kubectl port-forward svc/minio-console -n minio 9001
+
+# kubectl create secret generic  -n demo \
+# --from-literal=AWS_ACCESS_KEY_ID=accessKey \
+# --from-literal=AWS_SECRET_ACCESS_KEY=secretKey \
+# --from-literal=RESTIC_PASSWORD=abcde  minio-secret
+
+apiVersion: stash.appscode.com/v1alpha1
+kind: Repository
+metadata:
+  name: minio-repo
+  namespace: demo
+spec:
+  backend:
+    s3:
+      endpoint: http://minio.minio.svc:9000
+      bucket: backup-mongo
+      prefix: standalone #replica #shard 
+    storageSecretName: minio-secret

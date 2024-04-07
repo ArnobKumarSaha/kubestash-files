@@ -1,0 +1,94 @@
+# collector.conf
+
+sync_mode = all
+mongo_urls = mongodb://root:123456@localhost:27018/?directConnection=true
+tunnel.address = mongodb://root:123456@localhost:27019/?directConnection=true
+
+full_sync.http_port = 9101
+incr_sync.http_port = 9100
+
+
+
+-----------------
+
+<cmd/collector>
+configure.Load()
+SanitizeOptions()
+select the mongoshake leader, master quorum
+
+
+type ReplicationCoordinator struct {
+	MongoD             []*utils.MongoSource
+	MongoS             *utils.MongoSource
+	MongoCS            *utils.MongoSource
+	RealSourceFullSync []*utils.MongoSource // point to MongoD if source is mongod, otherwise MongoS
+	RealSourceIncrSync []*utils.MongoSource // point to MongoD if source is mongod, otherwise MongoS
+	fullSentinel *utils.Sentinel
+	incrSentinel *utils.Sentinel
+	syncerGroup []*collector.OplogSyncer // syncerGroup and workerGroup number is 1:N in ReplicaSet. 1:1 while replicated in shard cluster
+}
+type MongoSource struct {
+	URL         string
+	ReplicaName string
+	Gids        []string
+}
+construct the ReplicationCoordinator struct & call Run()
+
+
+checkpoint.storage
+db server = source database
+db = mongoshake
+collection = ckpt_default
+start position = 1970-01-01
+
+<collector/coordinator>
+sanitizeMongoDB()
+  - try to connect checkpoint storage
+  - try to connect source & destination server
+  - check local.oplog.rs exists
+  - check duplicate rs name
+  - set IncrSyncShardKey
+selectSyncMode()
+if syncMode all : 
+	serializeDocumentOplog()
+		
+
+startDocumentReplication() =>
+	get all ns those need to be synced
+	get current newest timestamp
+	create ns transformer
+	StartDropDestCollection()
+	fetch indexes, index sync
+	dbSyncer.Start() goroutines
+
+dbSyncer.Start() =>
+	filter ns with NewDocFilterList()
+	<FullSyncReaderCollectionParallel 6>
+	call collectionSync() in parallel for all ns
+
+collectionSync() => < single collection >
+	colExecutor.Start()
+	NewDocumentSplitter()
+	<FullSyncReaderParallelThread 1>
+	<-splitter.readerChan
+	splitSync()
+	colExecutor.Wait()
+
+colExecutor.Start() => 
+	<FullSyncReaderWriteDocumentParallel 8>
+	docExecutor.Start()
+
+NewDocumentSplitter() => 
+	collStats
+	documentSplitter.Run()
+
+documentSplitter.Run() => 
+
+
+docExecutor.Start() =>
+	docs, ok := <- colExecutor.docBatch
+	doSync(docs)
+
+doSync() =>
+	InsertOneModel
+	bulkWrite

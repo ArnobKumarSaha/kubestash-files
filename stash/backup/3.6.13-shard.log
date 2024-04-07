@@ -1,0 +1,181 @@
+kubectl logs -f -n demo pod/stash-backup-mg-backup-1691581680-0-nsf4n -c mongodb-backup-3-6-13-0
+I0809 11:48:01.349023       1 log.go:194] FLAG: --add-dir-header="false"
+I0809 11:48:01.349062       1 log.go:194] FLAG: --alsologtostderr="false"
+I0809 11:48:01.349065       1 log.go:194] FLAG: --appbinding="mg"
+I0809 11:48:01.349067       1 log.go:194] FLAG: --appbinding-namespace="demo"
+I0809 11:48:01.349070       1 log.go:194] FLAG: --authentication-database="admin"
+I0809 11:48:01.349073       1 log.go:194] FLAG: --backupsession="mg-backup-1691581680"
+I0809 11:48:01.349075       1 log.go:194] FLAG: --bucket="arnob"
+I0809 11:48:01.349077       1 log.go:194] FLAG: --enable-cache="true"
+I0809 11:48:01.349080       1 log.go:194] FLAG: --endpoint="us-east-1.linodeobjects.com"
+I0809 11:48:01.349086       1 log.go:194] FLAG: --help="false"
+I0809 11:48:01.349089       1 log.go:194] FLAG: --hostname="host-0"
+I0809 11:48:01.349093       1 log.go:194] FLAG: --kubeconfig=""
+I0809 11:48:01.349097       1 log.go:194] FLAG: --license-apiservice="v1beta1.admission.stash.appscode.com"
+I0809 11:48:01.349100       1 log.go:194] FLAG: --log-backtrace-at=":0"
+I0809 11:48:01.349104       1 log.go:194] FLAG: --log-dir=""
+I0809 11:48:01.349106       1 log.go:194] FLAG: --log-file=""
+I0809 11:48:01.349109       1 log.go:194] FLAG: --log-file-max-size="1800"
+I0809 11:48:01.349112       1 log.go:194] FLAG: --log-flush-frequency="5s"
+I0809 11:48:01.349115       1 log.go:194] FLAG: --logtostderr="true"
+I0809 11:48:01.349117       1 log.go:194] FLAG: --master=""
+I0809 11:48:01.349120       1 log.go:194] FLAG: --max-concurrency="3"
+I0809 11:48:01.349123       1 log.go:194] FLAG: --max-connections="0"
+I0809 11:48:01.349125       1 log.go:194] FLAG: --mongo-args=""
+I0809 11:48:01.349128       1 log.go:194] FLAG: --namespace="demo"
+I0809 11:48:01.349131       1 log.go:194] FLAG: --one-output="false"
+I0809 11:48:01.349133       1 log.go:194] FLAG: --output-dir="/stash-tmp/output"
+I0809 11:48:01.349136       1 log.go:194] FLAG: --path="4.0.5-shard"
+I0809 11:48:01.349138       1 log.go:194] FLAG: --provider="s3"
+I0809 11:48:01.349141       1 log.go:194] FLAG: --region="us-east-1"
+I0809 11:48:01.349144       1 log.go:194] FLAG: --retention-dry-run="false"
+I0809 11:48:01.349147       1 log.go:194] FLAG: --retention-keep-daily="0"
+I0809 11:48:01.349149       1 log.go:194] FLAG: --retention-keep-hourly="0"
+I0809 11:48:01.349152       1 log.go:194] FLAG: --retention-keep-last="5"
+I0809 11:48:01.349154       1 log.go:194] FLAG: --retention-keep-monthly="0"
+I0809 11:48:01.349165       1 log.go:194] FLAG: --retention-keep-tags="[]"
+I0809 11:48:01.349171       1 log.go:194] FLAG: --retention-keep-weekly="0"
+I0809 11:48:01.349173       1 log.go:194] FLAG: --retention-keep-yearly="0"
+I0809 11:48:01.349176       1 log.go:194] FLAG: --retention-prune="true"
+I0809 11:48:01.349178       1 log.go:194] FLAG: --scratch-dir="/stash-tmp"
+I0809 11:48:01.349181       1 log.go:194] FLAG: --skip-headers="false"
+I0809 11:48:01.349183       1 log.go:194] FLAG: --skip-log-headers="false"
+I0809 11:48:01.349186       1 log.go:194] FLAG: --stderrthreshold="2"
+I0809 11:48:01.349189       1 log.go:194] FLAG: --storage-secret-name="***REDACTED***"
+I0809 11:48:01.349191       1 log.go:194] FLAG: --storage-secret-namespace="***REDACTED***"
+I0809 11:48:01.349194       1 log.go:194] FLAG: --v="0"
+I0809 11:48:01.349197       1 log.go:194] FLAG: --vmodule=""
+I0809 11:48:01.349200       1 log.go:194] FLAG: --wait-timeout="300"
+W0809 11:48:01.349396       1 client_config.go:617] Neither --kubeconfig nor --master was specified.  Using the inClusterConfig.  This might not work.
+I0809 11:48:01.361209       1 commands.go:100] Checking whether the backend repository exist or not....
+[golang-sh]$ /bin/restic snapshots --json --no-lock --cache-dir /stash-tmp/restic-cache
+Fatal: unable to open config file: Stat: The specified key does not exist.
+Is there a repository at the following location?
+s3:us-east-1.linodeobjects.com/arnob/4.0.5-shard
+I0809 11:48:03.427142       1 commands.go:111] Initializing new restic repository in the backend....
+[golang-sh]$ /bin/restic init --cache-dir /stash-tmp/restic-cache
+I0809 11:48:09.125853       1 commands.go:428] sh-output: created restic repository fa9e4342fd at s3:us-east-1.linodeobjects.com/arnob/4.0.5-shard
+
+Please note that knowledge of your password is required to access
+the repository. Losing your password means that your data is
+irrecoverably lost.
+
+I0809 11:48:09.131694       1 backup.go:101] Waiting for the backend repository.....
+I0809 11:48:09.135679       1 utils.go:75] Checking database connection
+I0809 11:48:09.141064       1 backup.go:577] finding primary and secondary instances of cnfRepSet/mg-configsvr-0.mg-configsvr-pods.demo.svc:27017,mg-configsvr-1.mg-configsvr-pods.demo.svc:27017
+I0809 11:48:09.180779       1 backup.go:619] Disabling balancer of  mg.demo.svc
+I0809 11:48:09.289120       1 backup.go:674] Attempting to lock configserver cnfRepSet/mg-configsvr-0.mg-configsvr-pods.demo.svc:27017,mg-configsvr-1.mg-configsvr-pods.demo.svc:27017
+I0809 11:48:09.386658       1 backup.go:728] Attempting to lock secondary member mg-configsvr-1.mg-configsvr-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.476286       1 backup.go:381] processing backupOptions for  mg-configsvr-1.mg-configsvr-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.476296       1 backup.go:577] finding primary and secondary instances of shard2/mg-shard2-0.mg-shard2-pods.demo.svc:27017,mg-shard2-1.mg-shard2-pods.demo.svc:27017
+I0809 11:48:09.513344       1 backup.go:728] Attempting to lock secondary member mg-shard2-1.mg-shard2-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.569745       1 backup.go:381] processing backupOptions for  mg-shard2-1.mg-shard2-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.569757       1 backup.go:577] finding primary and secondary instances of shard0/mg-shard0-0.mg-shard0-pods.demo.svc:27017,mg-shard0-1.mg-shard0-pods.demo.svc:27017
+I0809 11:48:09.607967       1 backup.go:728] Attempting to lock secondary member mg-shard0-1.mg-shard0-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.664907       1 backup.go:381] processing backupOptions for  mg-shard0-1.mg-shard0-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.664920       1 backup.go:577] finding primary and secondary instances of shard1/mg-shard1-0.mg-shard1-pods.demo.svc:27017,mg-shard1-1.mg-shard1-pods.demo.svc:27017
+I0809 11:48:09.701962       1 backup.go:728] Attempting to lock secondary member mg-shard1-1.mg-shard1-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.763525       1 backup.go:381] processing backupOptions for  mg-shard1-1.mg-shard1-pods.demo.svc.cluster.local:27017
+I0809 11:48:09.763539       1 backup.go:514] processing backup.
+I0809 11:48:09.763614       1 commands.go:153] Backing up stdin data
+I0809 11:48:09.763618       1 commands.go:153] Backing up stdin data
+I0809 11:48:09.763625       1 commands.go:153] Backing up stdin data
+2023-08-09T11:48:09.810+0000	writing admin.system.users to archive on stdout
+2023-08-09T11:48:09.810+0000	writing admin.system.users to archive on stdout
+2023-08-09T11:48:09.811+0000	done dumping admin.system.users (1 document)
+2023-08-09T11:48:09.811+0000	writing admin.system.version to archive on stdout
+2023-08-09T11:48:09.811+0000	done dumping admin.system.users (1 document)
+2023-08-09T11:48:09.811+0000	writing admin.system.version to archive on stdout
+2023-08-09T11:48:09.812+0000	done dumping admin.system.version (4 documents)
+2023-08-09T11:48:09.812+0000	done dumping admin.system.version (3 documents)
+2023-08-09T11:48:09.812+0000	writing config.cache.chunks.kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:09.812+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:09.812+0000	writing admin.system.users to archive on stdout
+2023-08-09T11:48:09.812+0000	writing config.cache.chunks.kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:09.813+0000	done dumping admin.system.users (1 document)
+2023-08-09T11:48:09.813+0000	writing admin.system.version to archive on stdout
+2023-08-09T11:48:09.814+0000	done dumping admin.system.version (2 documents)
+2023-08-09T11:48:09.814+0000	writing config.changelog to archive on stdout
+2023-08-09T11:48:09.814+0000	writing config.lockpings to archive on stdout
+2023-08-09T11:48:09.818+0000	writing config.cache.collections to archive on stdout
+2023-08-09T11:48:09.818+0000	writing config.cache.collections to archive on stdout
+2023-08-09T11:48:09.818+0000	writing config.cache.chunks.config.system.sessions to archive on stdout
+2023-08-09T11:48:09.822+0000	writing config.locks to archive on stdout
+2023-08-09T11:48:09.822+0000	writing config.chunks to archive on stdout
+2023-08-09T11:48:09.831+0000	done dumping config.changelog (20 documents)
+2023-08-09T11:48:09.831+0000	writing config.tags to archive on stdout
+2023-08-09T11:48:09.824+0000	writing config.cache.chunks.config.system.sessions to archive on stdout
+2023-08-09T11:48:09.836+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:09.836+0000	done dumping config.tags (3 documents)
+2023-08-09T11:48:09.836+0000	writing config.shards to archive on stdout
+2023-08-09T11:48:09.838+0000	done dumping config.chunks (6 documents)
+2023-08-09T11:48:09.838+0000	writing config.mongos to archive on stdout
+2023-08-09T11:48:09.839+0000	done dumping config.locks (8 documents)
+2023-08-09T11:48:09.839+0000	writing config.collections to archive on stdout
+2023-08-09T11:48:09.846+0000	done dumping config.cache.chunks.kubedb-system.health-check (5 documents)
+2023-08-09T11:48:09.847+0000	done dumping config.lockpings (9 documents)
+2023-08-09T11:48:09.847+0000	writing config.actionlog to archive on stdout
+2023-08-09T11:48:09.855+0000	done dumping config.cache.collections (2 documents)
+2023-08-09T11:48:09.857+0000	done dumping kubedb-system.health-check (1 document)
+2023-08-09T11:48:09.858+0000	done dumping config.cache.chunks.config.system.sessions (1 document)
+2023-08-09T11:48:09.858+0000	writing captured oplog to 
+2023-08-09T11:48:09.860+0000	done dumping config.cache.chunks.config.system.sessions (1 document)
+2023-08-09T11:48:09.864+0000	done dumping config.mongos (2 documents)
+2023-08-09T11:48:09.864+0000	done dumping config.actionlog (2 documents)
+2023-08-09T11:48:09.864+0000	done dumping config.collections (2 documents)
+2023-08-09T11:48:09.864+0000	writing config.databases to archive on stdout
+2023-08-09T11:48:09.864+0000	writing config.settings to archive on stdout
+2023-08-09T11:48:09.871+0000	done dumping kubedb-system.health-check (3 documents)
+2023-08-09T11:48:09.872+0000	done dumping config.cache.collections (2 documents)
+2023-08-09T11:48:09.874+0000	done dumping config.cache.chunks.kubedb-system.health-check (5 documents)
+2023-08-09T11:48:09.875+0000	writing captured oplog to 
+2023-08-09T11:48:09.876+0000		dumped 1 oplog entry
+2023-08-09T11:48:09.880+0000	writing config.version to archive on stdout
+2023-08-09T11:48:09.886+0000	done dumping config.shards (3 documents)
+2023-08-09T11:48:09.886+0000	writing config.BackupControl to archive on stdout
+2023-08-09T11:48:09.887+0000	done dumping config.settings (1 document)
+2023-08-09T11:48:09.887+0000	writing admin.kubedb to archive on stdout
+2023-08-09T11:48:09.887+0000	done dumping config.version (1 document)
+2023-08-09T11:48:09.887+0000	writing config.migrations to archive on stdout
+2023-08-09T11:48:09.887+0000	done dumping config.databases (2 documents)
+2023-08-09T11:48:09.892+0000		dumped 1 oplog entry
+2023-08-09T11:48:09.900+0000	done dumping config.BackupControl (1 document)
+2023-08-09T11:48:09.900+0000	done dumping admin.kubedb (1 document)
+2023-08-09T11:48:09.900+0000	done dumping config.migrations (0 documents)
+2023-08-09T11:48:09.900+0000	writing captured oplog to 
+2023-08-09T11:48:09.904+0000		dumped 1 oplog entry
+I0809 11:48:17.312885       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":4881,"total_files_processed":1,"total_bytes_processed":4593,"total_duration":3.659778647,"snapshot_id":"bf92079f"}
+
+I0809 11:48:17.313031       1 commands.go:153] Backing up stdin data
+2023-08-09T11:48:17.334+0000	writing admin.system.users to archive on stdout
+2023-08-09T11:48:17.336+0000	done dumping admin.system.users (1 document)
+2023-08-09T11:48:17.336+0000	writing admin.system.version to archive on stdout
+2023-08-09T11:48:17.337+0000	done dumping admin.system.version (3 documents)
+2023-08-09T11:48:17.337+0000	writing config.cache.chunks.kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:17.342+0000	writing config.cache.collections to archive on stdout
+2023-08-09T11:48:17.349+0000	writing config.cache.chunks.config.system.sessions to archive on stdout
+2023-08-09T11:48:17.358+0000	writing kubedb-system.health-check to archive on stdout
+2023-08-09T11:48:17.359+0000	done dumping config.cache.chunks.kubedb-system.health-check (5 documents)
+2023-08-09T11:48:17.359+0000	writing test.cols to archive on stdout
+2023-08-09T11:48:17.372+0000	done dumping config.cache.collections (2 documents)
+2023-08-09T11:48:17.372+0000	done dumping config.cache.chunks.config.system.sessions (1 document)
+2023-08-09T11:48:17.378+0000	done dumping kubedb-system.health-check (1 document)
+2023-08-09T11:48:17.378+0000	done dumping test.cols (1 document)
+2023-08-09T11:48:17.378+0000	writing captured oplog to 
+2023-08-09T11:48:17.385+0000		dumped 1 oplog entry
+I0809 11:48:17.708847       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":5288,"total_files_processed":1,"total_bytes_processed":4997,"total_duration":4.097026556,"snapshot_id":"bd9f4659"}
+
+I0809 11:48:17.929276       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":2,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":20997,"total_files_processed":1,"total_bytes_processed":20705,"total_duration":4.188377052,"snapshot_id":"0495c884"}
+
+I0809 11:48:24.817567       1 commands.go:428] sh-output: {"message_type":"status","seconds_elapsed":1,"percent_done":0,"total_files":1}
+{"message_type":"summary","files_new":1,"files_changed":0,"files_unmodified":0,"dirs_new":0,"dirs_changed":0,"dirs_unmodified":0,"data_blobs":1,"tree_blobs":1,"data_added":5230,"total_files_processed":1,"total_bytes_processed":4939,"total_duration":3.600623827,"snapshot_id":"6127b1db"}
+
+I0809 11:48:24.817783       1 backup.go:652] Enabling balancer of  mg.demo.svc
+E0809 11:49:24.876136       1 backup.go:535] invalid character '@' looking for beginning of value
+I0809 11:49:24.876173       1 backup.go:754] Attempting to unlock secondary member mg-configsvr-1.mg-configsvr-pods.demo.svc.cluster.local:27017
+I0809 11:49:24.919771       1 backup.go:754] Attempting to unlock secondary member mg-shard2-1.mg-shard2-pods.demo.svc.cluster.local:27017
+I0809 11:49:24.960177       1 backup.go:754] Attempting to unlock secondary member mg-shard0-1.mg-shard0-pods.demo.svc.cluster.local:27017
+I0809 11:49:25.000668       1 backup.go:754] Attempting to unlock secondary member mg-shard1-1.mg-shard1-pods.demo.svc.cluster.local:27017
