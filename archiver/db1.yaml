@@ -6,7 +6,7 @@ metadata:
   labels:
     archiver: "true"
 spec:
-  version: "5.0.23"
+  version: "6.0.12"
   replicaSet:
     name: "rs" 
   replicas: 3
@@ -14,12 +14,12 @@ spec:
     spec:
       resources:
         requests:
-          cpu: "500m"
-          memory: "500Mi"
+          cpu: "1"
+          memory: "1Gi"
   storage:
     # storageClassName: longhorn
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 1Gi
+        storage: 5Gi

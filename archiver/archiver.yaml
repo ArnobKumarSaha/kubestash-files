@@ -4,7 +4,7 @@ metadata:
   name: mongodbarchiver-sample
   namespace: demo
 spec:
-  pause: false
+  pause: true 
   databases:
     namespaces:
       from: "Same"
@@ -36,5 +36,5 @@ spec:
     sessionHistoryLimit: 2
   backupStorage:
     ref:
-      name: gcs-storage
+      name: s3-storage
       namespace: demo     

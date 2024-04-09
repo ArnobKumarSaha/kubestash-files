@@ -4,7 +4,7 @@ metadata:
   name: mg-rs-restored
   namespace: demo
 spec:
-  version: "4.4.26"
+  version: "6.0.12"
   replicaSet:
     name: "rs"
   replicas: 3
@@ -12,18 +12,18 @@ spec:
     spec:
       resources:
         requests:
-          cpu: "500m"
-          memory: "500Mi"
+          cpu: "700m"
+          memory: "1Gi"
   storage:
     storageClassName: longhorn
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
-        storage: 1Gi
+        storage: 5Gi
   init:
     archiver:
-      recoveryTimestamp: "2023-12-12T13:59:01Z"
+      recoveryTimestamp: "2024-04-09T12:04:01Z"
       encryptionSecret:
         name: encrypt-secret
         namespace: demo

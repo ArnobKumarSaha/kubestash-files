@@ -14,7 +14,7 @@ helm upgrade -i kubedb oci://ghcr.io/appscode-charts/kubedb \
 
 
 helm install kubestash oci://ghcr.io/appscode-charts/kubestash \
-  --version v2024.2.5 \
+  --version v2024.3.16 \
   --namespace kubestash --create-namespace \
   --set-file global.license=/home/arnob/yamls/license/arnob.txt
 
