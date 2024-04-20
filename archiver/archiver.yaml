@@ -4,7 +4,7 @@ metadata:
   name: mongodbarchiver-sample
   namespace: demo
 spec:
-  pause: true 
+  pause: false
   databases:
     namespaces:
       from: "Same"
@@ -22,13 +22,44 @@ spec:
     task:
       params:
         volumeSnapshotClassName: longhorn-vsc  
-    scheduler:
+    scheduler: # configuration for backup triggering cronJob. (~ bc.spec.sessions[].scheduler)
       successfulJobsHistoryLimit: 2
       failedJobsHistoryLimit: 2
       schedule: "*/7 * * * *"
+      jobTemplate:
+        backoffLimit: 3
+        template:
+          spec:
+            serviceAccountName: my-cron-sa
+            securityContext:
+              runAsUser: 999
+      concurrencyPolicy: Allow
+    containerRuntimeSettings: # configuration for backup executor container. (~ bc.spec.sessions[].addon.containerRuntimeSettings)
+      resources:
+        requests:
+          memory: 300Mi
+    jobTemplate: # configuration for backup job. (~ bc.spec.sessions[].addon.jobTemplate)
+      spec:
+          serviceAccountName: my-backup-sa
+          securityContext:
+            runAsUser: 999
+    retryConfig:
+      maxRetry: 2
+      delay: 30s
+    timeout: 30m
     sessionHistoryLimit: 3
-  walBackup: {}
-  manifestBackup:
+  walBackup: # configuration for wal-g container
+    runtimeSettings:
+      pod:
+        serviceAccountName: my-wal-sa
+      container:
+        resources:
+          requests:
+            memory: 300Mi
+    # configSecret:
+    #   name:
+    #   envToSecretKey:
+  manifestBackup: # all the options(except driver) from fullBackup are also available here.
     scheduler:
       successfulJobsHistoryLimit: 1
       failedJobsHistoryLimit: 1
@@ -37,4 +68,5 @@ spec:
   backupStorage:
     ref:
       name: s3-storage
-      namespace: demo     
+      namespace: demo
+  deletionPolicy: WipeOut

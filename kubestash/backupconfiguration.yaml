@@ -8,7 +8,7 @@ spec:
     apiGroup: kubedb.com
     kind: MongoDB
     namespace: demo
-    name: mg5
+    name: repl6
   backends:
   - name: linode-backend
     storageRef:
@@ -18,28 +18,47 @@ spec:
       name: mongodb-retention-policy
       namespace: demo
   sessions:
-  - name: specific-db
-    sessionHistoryLimit: 3
-    scheduler:
-      schedule: "*/3 * * * *"
-      successfulJobsHistoryLimit: 2
-      failedJobsHistoryLimit: 2
-      jobTemplate:
-        backoffLimit: 1
-    repositories:
-    - name: specific-repo
-      backend: linode-backend
-      directory: /specific
-      encryptionSecret:
-        name: encrypt-secret # some addon may not support encryption
-        namespace: demo
-    addon:
-      name: mongodb-addon
-      tasks:
-      - name: logical-backup
-        params:
-          args: --db=testdb
-  - name: full-db
+  # - name: specific-db
+  #   sessionHistoryLimit: 3
+  #   scheduler:
+  #     schedule: "*/3 * * * *"
+  #     successfulJobsHistoryLimit: 2
+  #     failedJobsHistoryLimit: 2
+  #     jobTemplate:
+  #       backoffLimit: 1
+  #   repositories:
+  #   - name: specific-repo
+  #     backend: linode-backend
+  #     directory: /specific
+  #     encryptionSecret:
+  #       name: encrypt-secret # some addon may not support encryption
+  #       namespace: demo
+  #   addon:
+  #     name: mongodb-addon
+  #     tasks:
+  #     - name: logical-backup
+  #       params:
+  #         args: --db=testdb
+  # - name: full-db
+  #   sessionHistoryLimit: 3
+  #   scheduler:
+  #     schedule: "*/5 * * * *"
+  #     successfulJobsHistoryLimit: 2
+  #     failedJobsHistoryLimit: 2
+  #     jobTemplate:
+  #       backoffLimit: 1
+  #   repositories:
+  #   - name: full-repo
+  #     backend: linode-backend
+  #     directory: /full
+  #     encryptionSecret:
+  #       name: encrypt-secret # some addon may not support encryption
+  #       namespace: demo
+  #   addon:
+  #     name: mongodb-addon
+  #     tasks:
+  #     - name: logical-backup
+  - name: with-csi
     sessionHistoryLimit: 3
     scheduler:
       schedule: "*/5 * * * *"
@@ -48,14 +67,23 @@ spec:
       jobTemplate:
         backoffLimit: 1
     repositories:
-    - name: full-repo
+    - name: csi-repo
       backend: linode-backend
-      directory: /full
-      encryptionSecret:
-        name: encrypt-secret # some addon may not support encryption
-        namespace: demo
+      directory: /csi
+      # deletionPolicy: Delete
     addon:
       name: mongodb-addon
       tasks:
-      - name: logical-backup
-# NB: Deleting the backupConfiguration will delete not delete the created repositories & snapshots
+      - name: volume-snapshot
+        variables:
+        - name: volumeSnapshotClassName
+          value: longhorn-vsc
+        # params:
+# NB: Deleting the backupConfiguration will not delete the created repositories & snapshots
+
+
+
+#   DB_VERSION:6.0.5 backupSession:db-backup-with-csi-1713546900 imageRegistry: imageRepo: imageTag:
+#   invokerKind:BackupConfiguration invokerName:db-backup licenseApiService: namespace:demo
+#   taskName:volume-snapshot volumeSnapshotClassName:longhorn-vsc] =========================
+# I0419 17:15:00.764888       1 task.go:121] [backup --namespace=demo --volume-snapshot-class-name=longhorn-vsc --backupsession=db-backup-with-csi-1713546900
