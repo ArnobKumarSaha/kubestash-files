@@ -1,7 +1,7 @@
 apiVersion: kubedb.com/v1alpha2
 kind: MongoDB
 metadata:
-  name: mg-rs
+  name: repl6
   namespace: demo
   labels:
     archiver: "true"
@@ -15,7 +15,7 @@ spec:
       resources:
         requests:
           cpu: "1"
-          memory: "1Gi"
+          memory: "2Gi"
   storage:
     # storageClassName: longhorn
     accessModes:

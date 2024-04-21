@@ -25,12 +25,12 @@ spec:
     scheduler: # configuration for backup triggering cronJob. (~ bc.spec.sessions[].scheduler)
       successfulJobsHistoryLimit: 2
       failedJobsHistoryLimit: 2
-      schedule: "*/7 * * * *"
+      schedule: "*/5 * * * *"
       jobTemplate:
         backoffLimit: 3
         template:
           spec:
-            serviceAccountName: my-cron-sa
+            # serviceAccountName: my-cron-sa # the sa of trigger job
             securityContext:
               runAsUser: 999
       concurrencyPolicy: Allow
@@ -40,7 +40,7 @@ spec:
           memory: 300Mi
     jobTemplate: # configuration for backup job. (~ bc.spec.sessions[].addon.jobTemplate)
       spec:
-          serviceAccountName: my-backup-sa
+          # serviceAccountName: my-backup-sa # the sa of backup job
           securityContext:
             runAsUser: 999
     retryConfig:
@@ -48,11 +48,11 @@ spec:
       delay: 30s
     timeout: 30m
     sessionHistoryLimit: 3
-  walBackup: # configuration for wal-g container
+  walBackup: # configuration for sidekick
     runtimeSettings:
-      pod:
+      pod: #(~sidekick.spec)
         serviceAccountName: my-wal-sa
-      container:
+      container: #(~sidekick.spec.containers[wal-g container])
         resources:
           requests:
             memory: 300Mi
@@ -63,10 +63,11 @@ spec:
     scheduler:
       successfulJobsHistoryLimit: 1
       failedJobsHistoryLimit: 1
-      schedule: "*/5 * * * *"
+      schedule: "*/3 * * * *"
     sessionHistoryLimit: 2
   backupStorage:
     ref:
       name: s3-storage
       namespace: demo
+    subDir: /sub
   deletionPolicy: WipeOut
