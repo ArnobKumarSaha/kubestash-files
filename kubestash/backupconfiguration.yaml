@@ -39,7 +39,30 @@ spec:
   #     - name: logical-backup
   #       params:
   #         args: --db=testdb
-  # - name: full-db
+  - name: full-db
+    sessionHistoryLimit: 3
+    scheduler:
+      schedule: "*/3 * * * *"
+      successfulJobsHistoryLimit: 2
+      failedJobsHistoryLimit: 2
+      jobTemplate:
+        backoffLimit: 1
+    repositories:
+    - name: full-repo
+      backend: linode-backend
+      directory: /full
+      encryptionSecret:
+        name: encrypt-secret # some addon may not support encryption
+        namespace: demo
+    addon:
+      name: mongodb-addon
+      tasks:
+      - name: logical-backup
+      jobTemplate:
+        spec:
+          securityContext:
+            runAsUser: 999
+  # - name: with-csi
   #   sessionHistoryLimit: 3
   #   scheduler:
   #     schedule: "*/5 * * * *"
@@ -48,36 +71,17 @@ spec:
   #     jobTemplate:
   #       backoffLimit: 1
   #   repositories:
-  #   - name: full-repo
+  #   - name: csi-repo
   #     backend: linode-backend
-  #     directory: /full
-  #     encryptionSecret:
-  #       name: encrypt-secret # some addon may not support encryption
-  #       namespace: demo
+  #     directory: /csi
+  #     # deletionPolicy: Delete
   #   addon:
   #     name: mongodb-addon
   #     tasks:
-  #     - name: logical-backup
-  - name: with-csi
-    sessionHistoryLimit: 3
-    scheduler:
-      schedule: "*/5 * * * *"
-      successfulJobsHistoryLimit: 2
-      failedJobsHistoryLimit: 2
-      jobTemplate:
-        backoffLimit: 1
-    repositories:
-    - name: csi-repo
-      backend: linode-backend
-      directory: /csi
-      # deletionPolicy: Delete
-    addon:
-      name: mongodb-addon
-      tasks:
-      - name: volume-snapshot
-        variables:
-        - name: volumeSnapshotClassName
-          value: longhorn-vsc
+  #     - name: volume-snapshot
+  #       variables:
+  #       - name: volumeSnapshotClassName
+  #         value: longhorn-vsc
         # params:
 # NB: Deleting the backupConfiguration will not delete the created repositories & snapshots
 

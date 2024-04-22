@@ -1,40 +1,38 @@
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: mongodb-volume-snapshot
+  name: mongodb-backup
 spec:
   args:
   - backup
   - --namespace=${namespace:=default}
-  - --volume-snapshot-class-name=${volumeSnapshotClassName:=}
   - --backupsession=${backupSession:=}
-  # image: arnobkumarsaha/mongodb-csi-snapshotter-plugin:refactor_02
-  # image: hmsayem/mongodb-snapshotter-plugin:refactor_linux_amd64
-  image: hmsayem/mongodb-csi-snapshotter-plugin:refactor_linux_amd64
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  - --wait-timeout=${waitTimeout:=300}
+  - --mongo-args=${args:=}
+  - --max-concurrency=${maxConcurrency:=3}
+  - --authentication-database=${authenticationDatabase:=admin}
+  - --db-version=${dbVersion:=}
+  image: ghcr.io/kubedb/mongodb-restic-plugin:v0.7.0_${DB_VERSION}
+  availableVersions: ["4.2.3", "4.4.6", "5.0.3", "5.0.15", "6.0.12"]
 ---
 apiVersion: addons.kubestash.com/v1alpha1
 kind: Function
 metadata:
-  name: kubedb-manifest-backup
+  name: mongodb-restore
 spec:
-  image: arnobkumarsaha/kubedb-manifest-plugin:v0.1.0-rc.1-2-g46ad967_linux_amd64
   args:
-    - backup
-    - --namespace=${namespace:=default}
-    - --backupsession=${backupSession:=}
-    - --enable-cache=${enableCache:=}
-    - --scratch-dir=${scratchDir:=}
----
-apiVersion: addons.kubestash.com/v1alpha1
-kind: Function
-metadata:
-  name: kubedb-manifest-restore
-spec:
-  image: arnobkumarsaha/kubedb-manifest-plugin:v0.1.0-rc.1-2-g46ad967_linux_amd64
-  args:
-    - restore
-    - --namespace=${namespace:=default}
-    - --restoresession=${restoreSession:=}
-    - --snapshot=${snapshot:=}
-    - --enable-cache=${enableCache:=}
-    - --scratch-dir=${scratchDir:=}
+  - restore
+  - --namespace=${namespace:=default}
+  - --restoresession=${restoreSession:=}
+  - --snapshot=${snapshot:=}
+  - --enable-cache=${enableCache:=}
+  - --scratch-dir=${scratchDir:=}
+  - --wait-timeout=${waitTimeout:=300}
+  - --mongo-args=${args:=}
+  - --max-concurrency=${maxConcurrency:=3}
+  - --authentication-database=${authenticationDatabase:=admin}
+  - --db-version=${dbVersion:=}
+  image: ghcr.io/kubedb/mongodb-restic-plugin:v0.7.0_${DB_VERSION}
+  availableVersions: ["4.2.3", "4.4.6", "5.0.3", "5.0.15", "6.0.12"]

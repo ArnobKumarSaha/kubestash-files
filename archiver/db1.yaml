@@ -6,7 +6,7 @@ metadata:
   labels:
     archiver: "true"
 spec:
-  version: "6.0.12"
+  version: "5.0.23"
   replicaSet:
     name: "rs" 
   replicas: 3
