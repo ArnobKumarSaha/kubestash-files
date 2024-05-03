@@ -8,12 +8,12 @@ spec:
     apiGroup: kubedb.com
     kind: MongoDB
     namespace: demo
-    name: repl6
+    name: source
   backends:
-  - name: linode-backend
+  - name: azure-backend
     storageRef:
       namespace: demo
-      name: s3-storage
+      name: azure-storage
     retentionPolicy:
       name: mongodb-retention-policy
       namespace: demo
@@ -42,14 +42,14 @@ spec:
   - name: full-db
     sessionHistoryLimit: 3
     scheduler:
-      schedule: "*/3 * * * *"
+      schedule: "*/5 * * * *"
       successfulJobsHistoryLimit: 2
       failedJobsHistoryLimit: 2
       jobTemplate:
         backoffLimit: 1
     repositories:
     - name: full-repo
-      backend: linode-backend
+      backend: azure-backend
       directory: /full
       encryptionSecret:
         name: encrypt-secret # some addon may not support encryption

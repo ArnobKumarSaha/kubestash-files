@@ -1,0 +1,59 @@
+
+Standard_D8plds_v5
+Standard_D4plds_v5
+
+
+arnob@office ~> kubectl get pods -A
+NAMESPACE           NAME                                           READY   STATUS    RESTARTS      AGE
+gatekeeper-system   gatekeeper-audit-f7d954c5d-kgj56               1/1     Running   0             34m
+gatekeeper-system   gatekeeper-controller-77558f4f9b-8fg6j         1/1     Running   0             34m
+gatekeeper-system   gatekeeper-controller-77558f4f9b-klgx2         1/1     Running   0             34m
+kube-system         ama-logs-8wh82                                 3/3     Running   0             29m
+kube-system         ama-logs-cbtr4                                 3/3     Running   0             29m
+kube-system         ama-logs-r66l4                                 3/3     Running   0             29m
+kube-system         ama-logs-rs-7b9fd85844-95vss                   2/2     Running   0             29m
+kube-system         ama-metrics-5cb8bb95cb-mq6kl                   2/2     Running   0             29m
+kube-system         ama-metrics-ksm-d9c6f475b-t6bp8                1/1     Running   0             29m
+kube-system         ama-metrics-node-b8kph                         2/2     Running   0             29m
+kube-system         ama-metrics-node-sf2tf                         2/2     Running   0             29m
+kube-system         ama-metrics-node-v5gfs                         2/2     Running   0             29m
+kube-system         ama-metrics-operator-targets-65b95c57b-bqqzt   2/2     Running   2 (29m ago)   29m
+kube-system         azure-ip-masq-agent-5kjnz                      1/1     Running   0             34m
+kube-system         azure-ip-masq-agent-5mpdj                      1/1     Running   0             34m
+kube-system         azure-ip-masq-agent-lq8w6                      1/1     Running   0             34m
+kube-system         azure-policy-7f5d8b4548-m6v8x                  1/1     Running   0             34m
+kube-system         azure-policy-webhook-6f7b4cb546-lhfrv          1/1     Running   0             34m
+kube-system         cloud-node-manager-2z4bn                       1/1     Running   0             34m
+kube-system         cloud-node-manager-95jrz                       1/1     Running   0             34m
+kube-system         cloud-node-manager-qkj7x                       1/1     Running   0             34m
+kube-system         coredns-767bfbd4fb-4wzs7                       1/1     Running   0             33m
+kube-system         coredns-767bfbd4fb-lwwz8                       1/1     Running   0             34m
+kube-system         coredns-autoscaler-789f4c79dd-79vpk            1/1     Running   0             34m
+kube-system         csi-azuredisk-node-29zw5                       3/3     Running   0             34m
+kube-system         csi-azuredisk-node-l59fb                       3/3     Running   0             34m
+kube-system         csi-azuredisk-node-plm2q                       3/3     Running   0             34m
+kube-system         csi-azurefile-node-bn4dd                       3/3     Running   0             34m
+kube-system         csi-azurefile-node-n64sp                       3/3     Running   0             34m
+kube-system         csi-azurefile-node-qp2r4                       3/3     Running   0             34m
+kube-system         konnectivity-agent-d7c6d8586-7mrsd             1/1     Running   0             19m
+kube-system         konnectivity-agent-d7c6d8586-lj7vf             1/1     Running   0             19m
+kube-system         kube-proxy-4lbst                               1/1     Running   0             34m
+kube-system         kube-proxy-4z598                               1/1     Running   0             34m
+kube-system         kube-proxy-xpctc                               1/1     Running   0             34m
+kube-system         metrics-server-76848-8b47t                     2/2     Running   0             33m
+kube-system         metrics-server-76848-gp9t9                     2/2     Running   1 (32m ago)   33m
+arnob@office ~> kubectl get csidriver
+NAME                 ATTACHREQUIRED   PODINFOONMOUNT   STORAGECAPACITY   TOKENREQUESTS   REQUIRESREPUBLISH   MODES                  AGE
+disk.csi.azure.com   true             false            false             <unset>         false               Persistent             34m
+file.csi.azure.com   false            true             false             <unset>         false               Persistent,Ephemeral   34m
+arnob@office ~> kubectl get sc
+NAME                    PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+azurefile               file.csi.azure.com   Delete          Immediate              true                   35m
+azurefile-csi           file.csi.azure.com   Delete          Immediate              true                   35m
+azurefile-csi-premium   file.csi.azure.com   Delete          Immediate              true                   35m
+azurefile-premium       file.csi.azure.com   Delete          Immediate              true                   35m
+default (default)       disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   35m
+managed                 disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   35m
+managed-csi             disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   35m
+managed-csi-premium     disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   35m
+managed-premium         disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   35m

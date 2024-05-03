@@ -1,0 +1,17 @@
+apiVersion: storage.kubestash.com/v1alpha1
+kind: BackupStorage
+metadata:
+  name: azure-storage
+  namespace: demo
+spec:
+  storage:
+    provider: azure
+    azure:
+      container: arnob
+      prefix: mg-archiver
+      secretName: azure-secret
+      storageAccount: kubestashqa
+  usagePolicy:
+    allowedNamespaces:
+      from: All
+  deletionPolicy: WipeOut
