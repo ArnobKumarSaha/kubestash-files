@@ -1,0 +1,42 @@
+apiVersion: kubedb.com/v1alpha2
+kind: RedisSentinel
+metadata:
+  name: sentinel-restore
+  namespace: demo
+spec:
+  version: 6.2.14
+  replicas: 3
+  podTemplate:
+    spec:
+      initContainers:
+      - name: sentinel-init
+        securityContext:
+          runAsGroup: 1000660000
+          runAsUser: 1000660000
+          capabilities:
+            drop:
+            - ALL
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+      containerSecurityContext:
+        runAsGroup: 1000660000
+        runAsUser: 1000660000
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+          - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      securityContext:
+        fsGroup: 1000660000
+  storageType: Durable
+  storage:
+    resources:
+      requests:
+        storage: 1Gi
+    # storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
+  terminationPolicy: WipeOut

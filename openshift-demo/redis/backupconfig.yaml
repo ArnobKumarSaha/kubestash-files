@@ -1,0 +1,43 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: BackupConfiguration
+metadata:
+  name: redis-backup
+  namespace: demo
+spec:
+  target:
+    apiGroup: kubedb.com
+    kind: Redis
+    namespace: demo
+    name: rdsen
+  backends:
+  - name: linode-backend
+    storageRef:
+      namespace: demo
+      name: s3-storage
+    retentionPolicy:
+      name: retention-policy
+      namespace: demo
+  sessions:
+  - name: full-redis
+    sessionHistoryLimit: 3
+    scheduler:
+      schedule: "*/5 * * * *"
+      successfulJobsHistoryLimit: 2
+      failedJobsHistoryLimit: 2
+      jobTemplate:
+        backoffLimit: 1
+    repositories:
+    - name: redis-repo
+      backend: linode-backend
+      directory: /rdsen
+      encryptionSecret:
+        name: encrypt-secret # some addon may not support encryption
+        namespace: demo
+    addon:
+      name: redis-addon
+      tasks:
+      - name: logical-backup
+      jobTemplate:
+        spec:
+          securityContext:
+            runAsUser: 1000660000

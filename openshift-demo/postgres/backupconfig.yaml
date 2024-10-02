@@ -6,16 +6,16 @@ metadata:
 spec:
   target:
     apiGroup: kubedb.com
-    kind: MongoDB
+    kind: Postgres
     namespace: demo
-    name: mg4
+    name: pgc
   backends:
   - name: linode-backend
     storageRef:
       namespace: demo
-      name: linode
+      name: s3-storage
     retentionPolicy:
-      name: rp
+      name: pg-retention-policy
       namespace: demo
   sessions:
   # - name: specific-db
@@ -55,40 +55,10 @@ spec:
         name: encrypt-secret # some addon may not support encryption
         namespace: demo
     addon:
-      name: mongodb-addon
+      name: postgres-addon
       tasks:
       - name: logical-backup
-      - name: manifest-backup
       jobTemplate:
         spec:
           securityContext:
-            runAsUser: 999
-  # - name: with-csi
-  #   sessionHistoryLimit: 3
-  #   scheduler:
-  #     schedule: "*/5 * * * *"
-  #     successfulJobsHistoryLimit: 2
-  #     failedJobsHistoryLimit: 2
-  #     jobTemplate:
-  #       backoffLimit: 1
-  #   repositories:
-  #   - name: csi-repo
-  #     backend: linode-backend
-  #     directory: /csi
-  #     # deletionPolicy: Delete
-  #   addon:
-  #     name: mongodb-addon
-  #     tasks:
-  #     - name: volume-snapshot
-  #       variables:
-  #       - name: volumeSnapshotClassName
-  #         value: longhorn-vsc
-        # params:
-# NB: Deleting the backupConfiguration will not delete the created repositories & snapshots
-
-
-
-#   DB_VERSION:6.0.5 backupSession:db-backup-with-csi-1713546900 imageRegistry: imageRepo: imageTag:
-#   invokerKind:BackupConfiguration invokerName:db-backup licenseApiService: namespace:demo
-#   taskName:volume-snapshot volumeSnapshotClassName:longhorn-vsc] =========================
-# I0419 17:15:00.764888       1 task.go:121] [backup --namespace=demo --volume-snapshot-class-name=longhorn-vsc --backupsession=db-backup-with-csi-1713546900
+            runAsUser: 1000660000

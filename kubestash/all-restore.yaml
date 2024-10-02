@@ -1,0 +1,24 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: RestoreSession
+metadata:
+  name: restore-sample
+  namespace: demo
+spec:
+  manifestOptions:
+    restoreNamespace: dev
+    mongoDB:
+      db: true
+      dbName: xyz
+      authSecret: true
+      authSecretName: custom-auth
+  dataSource:
+    snapshot: full-repo-db-backup-full-db-1726558501
+    repository: full-repo
+    encryptionSecret:
+      name: encrypt-secret
+      namespace: demo
+  addon:
+    name: mongodb-addon
+    tasks:
+      - name: logical-backup-restore
+      - name: manifest-restore

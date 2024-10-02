@@ -13,7 +13,7 @@ spec:
     ref:
       apiVersion: appcatalog.appscode.com/v1alpha1
       kind: AppBinding
-      name: shard
+      name: mg-rs
   retentionPolicy:
     name: keep-last-5
     keepLast: 5

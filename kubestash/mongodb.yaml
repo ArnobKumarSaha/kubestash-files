@@ -1,4 +1,4 @@
-apiVersion: kubedb.com/v1alpha2
+apiVersion: kubedb.com/v1
 kind: MongoDB
 metadata:
   name: mg4
@@ -9,10 +9,18 @@ spec:
     name: "rs0"
   replicas: 3
   storageType: Durable
+  podTemplate:
+    spec:
+      containers:
+      - name: mongodb
+        resources:
+          requests:
+            cpu: 600m
+            memory: 600Mi
   storage:
     accessModes:
       - ReadWriteOnce
     resources:
       requests:
         storage: 1Gi
-  terminationPolicy: WipeOut
+  deletionPolicy: WipeOut

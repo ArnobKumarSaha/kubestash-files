@@ -9,7 +9,7 @@
 #   AWS_SECRET_ACCESS_KEY: <>
 #   AWS_ENDPOINT: https://us-east-1.linodeobjects.com
 
-# ---
+---
 apiVersion: storage.kubestash.com/v1alpha1
 kind: BackupStorage
 metadata:
@@ -20,10 +20,10 @@ spec:
     provider: s3
     s3:
       endpoint: https://us-east-1.linodeobjects.com
-      bucket: mg4
+      bucket: arnob
       region: us-east-1
-      prefix: test
-      secret: linode
+      prefix: poc-ui
+      secretName: linode
   usagePolicy:
     allowedNamespaces:
       from: All

@@ -1,0 +1,30 @@
+apiVersion: core.kubestash.com/v1alpha1
+kind: RestoreSession
+metadata:
+  name: redis-sample
+  namespace: demo
+spec:
+  target:
+    apiGroup: kubedb.com
+    kind: Redis
+    namespace: demo
+    name: rdsen-restore
+  dataSource:
+    snapshot: redis-repo-redis-backup-full-redis-1722502500
+    repository: redis-repo
+    encryptionSecret:
+      name: encrypt-secret # some addon may not support encryption
+      namespace: demo
+  addon:
+    name: redis-addon
+    tasks:
+      - name: logical-backup-restore
+    jobTemplate:
+      spec:
+        securityContext:
+          runAsUser: 1000660000
+
+
+# CREATE TABLE hi(id int);
+# INSERT INTO hi (id) values(generate_series(1,500));
+# SELECT count(*) from hi;

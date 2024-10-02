@@ -1,14 +1,14 @@
 apiVersion: core.kubestash.com/v1alpha1
 kind: RestoreSession
 metadata:
-  name: sample3
+  name: sample
   namespace: demo
 spec:
   target:
     apiGroup: kubedb.com
-    kind: MongoDB
+    kind: Postgres
     namespace: demo
-    name: specific-mg5
+    name: pgrestore
   # manifestOptions:
   #   restoreNamespace: demo2
   #   mongoDB:
@@ -17,14 +17,21 @@ spec:
   #     authSecret: true
   #     configSecret: true
   dataSource:
-    snapshot: specific-repo-db-backup-specific-db-1709622361
-    repository: specific-repo
+    snapshot: full-repo-db-backup-full-db-1709622300
+    repository: full-repo
     encryptionSecret:
       name: encrypt-secret # some addon may not support encryption
       namespace: demo
   addon:
-    name: mongodb-addon
+    name: postgres-addon
     tasks:
-    - name: logical-backup-restore
-      params:
-        args: --db=testdb
+      - name: logical-backup-restore
+    jobTemplate:
+      spec:
+        securityContext:
+          runAsUser: 1000660000
+
+
+# CREATE TABLE hi(id int);
+# INSERT INTO hi (id) values(generate_series(1,500));
+# SELECT count(*) from hi;

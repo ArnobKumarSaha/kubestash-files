@@ -8,6 +8,6 @@ spec:
     s3:
       endpoint: us-east-1.linodeobjects.com
       bucket: arnob
-      prefix: shard #rs #standalone
+      prefix: ui-testing
       region: us-east-1
     storageSecretName: lke-creds
