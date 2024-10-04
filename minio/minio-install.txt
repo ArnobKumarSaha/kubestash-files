@@ -1,0 +1,7 @@
+helm install minio --namespace minio --create-namespace --set rootUser=rootuser,rootPassword=rootpass123 minio/minio -f ~/yamls/minio-values.yaml
+
+port-forward minio-console. Create bucket & access-creds there.
+
+kubectl create secret generic -n demo minio-secret \
+    --from-literal=AWS_ACCESS_KEY_ID=iEs8lsdTd3Rk6ClWbsYp \
+    --from-literal=AWS_SECRET_ACCESS_KEY=<>
