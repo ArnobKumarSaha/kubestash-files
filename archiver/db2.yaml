@@ -4,18 +4,18 @@ metadata:
   name: mg-rs-restored
   namespace: demo
 spec:
-  version: "6.0.12"
+  version: "5.0.23"
   replicaSet:
-    name: "rs"
+    name: "rs" 
   replicas: 3
   podTemplate:
     spec:
       resources:
         requests:
-          cpu: "700m"
-          memory: "1Gi"
+          cpu: "1"
+          memory: "2Gi"
   storage:
-    storageClassName: longhorn
+    # storageClassName: longhorn
     accessModes:
       - ReadWriteOnce
     resources:
@@ -23,15 +23,15 @@ spec:
         storage: 5Gi
   init:
     archiver:
-      recoveryTimestamp: "2024-04-09T12:04:01Z"
+      recoveryTimestamp: "2024-10-08T13:52:00Z"
       encryptionSecret:
         name: encrypt-secret
         namespace: demo
       fullDBRepository:
-        name: mg-rs-full
+        name: repl6-full
         namespace: demo
       manifestRepository:
-        name: mg-rs-manifest
+        name: repl6-manifest
         namespace: demo
   terminationPolicy: WipeOut
 

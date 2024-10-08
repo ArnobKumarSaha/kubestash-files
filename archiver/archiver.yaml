@@ -12,7 +12,7 @@ spec:
       matchLabels:
         archiver: "true"
   retentionPolicy:
-    name: mongodb-retention-policy
+    name: retention-policy
     namespace: demo
   encryptionSecret:
     name: encrypt-secret

@@ -7,11 +7,11 @@ spec:
   storage:
     provider: azure
     azure:
-      container: arnob
-      prefix: mg-archiver
-      secretName: azure-secret
       storageAccount: kubestashqa
+      container: arnob
+      prefix: test-mg
+      secretName: azure-secret
   usagePolicy:
     allowedNamespaces:
       from: All
-  deletionPolicy: WipeOut
+  deletionPolicy: WipeOut # One of: WipeOut, Delete
