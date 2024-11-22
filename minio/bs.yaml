@@ -1,0 +1,21 @@
+apiVersion: storage.kubestash.com/v1alpha1
+kind: BackupStorage
+metadata:
+  generation: 1
+  name: minio-backupstorage-mongodb
+  namespace: demo
+spec:
+  deletionPolicy: WipeOut
+  runtimeSettings: {}
+  storage:
+    provider: s3
+    s3:
+      bucket: kubestash
+      endpoint: http://minio.minio.svc:9000
+      # insecureTLS: true
+      prefix: test
+      region: us-east-1
+      secretName: minio-secret
+  usagePolicy:
+    allowedNamespaces:
+      from: Same

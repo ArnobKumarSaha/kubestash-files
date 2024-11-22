@@ -1,7 +1,9 @@
-helm install minio --namespace minio --create-namespace --set rootUser=rootuser,rootPassword=rootpass123 minio/minio -f ~/yamls/minio-values.yaml
+helm repo add minio-comm https://charts.min.io/  
+helm install minio --namespace minio --create-namespace --set rootUser=rootuser,rootPassword=rootpass123 minio-comm/minio \
+    -f ~/go/src/github.com/Arnobkumarsaha/kubestash-files/minio/minio-values.yaml
 
 port-forward minio-console. Create bucket & access-creds there.
 
 kubectl create secret generic -n demo minio-secret \
-    --from-literal=AWS_ACCESS_KEY_ID=iEs8lsdTd3Rk6ClWbsYp \
-    --from-literal=AWS_SECRET_ACCESS_KEY=<>
+    --from-literal=AWS_ACCESS_KEY_ID=rootuser \
+    --from-literal=AWS_SECRET_ACCESS_KEY=rootpass123
